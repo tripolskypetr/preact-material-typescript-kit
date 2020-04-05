@@ -3,6 +3,6 @@ namespace Material {
 
   const {h, render} = preact;
 
-  render(<Counter/>, document.body);
+  render(<Counter/>, document.body, document.body.lastChild as HTMLElement);
 
 }
