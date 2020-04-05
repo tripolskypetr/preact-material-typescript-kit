@@ -1,0 +1,3 @@
+* linguist-language=TypeScript
+3rdparty/*/* linguist-vendored
+index.html linguist-vendored

@@ -1,0 +1,31 @@
+{
+  "name": "preact-material-typescript-kit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/material.js",
+  "typings": "dist/material.d.ts",
+  "scripts": {
+    "dev": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tripolskypetr/preact-material-typescript-kit.git"
+  },
+  "keywords": [
+    "typescript",
+    "preact",
+    "material",
+    "uikit",
+    "webpack-free"
+  ],
+  "author": "Petr Tripolsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tripolskypetr/preact-material-typescript-kit/issues"
+  },
+  "homepage": "https://github.com/tripolskypetr/preact-material-typescript-kit#readme",
+  "devDependencies": {
+    "tslint": "6.1.1",
+    "typescript": "3.8.3"
+  }
+}

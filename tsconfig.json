@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+      "target": "ES3",
+      "module": "system",
+      "moduleResolution": "node",
+      "declaration": true,
+      "sourceMap": true,
+      "jsx": "react",
+      "jsxFactory": "h",
+      "lib": [
+          "es2020",
+          "dom"
+      ],
+      "typeRoots" : [
+          "./src/type"
+      ],
+      "outFile": "./dist/material.js",
+      "rootDir": "./src/", 
+      "baseUrl": "./"
+  },
+  "exclude": [
+      "dist",
+      "sample.d.ts"
+  ]
+}
