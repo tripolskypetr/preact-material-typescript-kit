@@ -3,6 +3,9 @@ namespace Material {
   const {useState, useCallback} = preactHooks;
   const {h} = preact;
 
+  /**
+   * TODO: closure compiler jsx factory externs
+   */
   export const Counter = () => {
     const [value, setValue] = useState(0);
     const increment = useCallback(() => {
@@ -11,7 +14,7 @@ namespace Material {
     return (
       <div>
         Counter: {value}
-        <button onClick={increment}>
+        <button class="test" onClick={increment}>
           <span className="material-icons">add_circle</span>
         </button>
       </div>

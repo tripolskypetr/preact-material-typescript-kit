@@ -6,7 +6,8 @@
   "typings": "dist/material.d.ts",
   "scripts": {
     "dev": "tsc -w",
-    "prod": "tsc && google-closure-compiler dist/material.js --compilation_level SIMPLE --warning_level QUIET  >  dist/material.min.js"
+    "prod": "tsc && google-closure-compiler dist/material.js --compilation_level SIMPLE --warning_level QUIET  >  dist/material.min.js",
+    "prod:advanced": "tsc && google-closure-compiler dist/material.js --compilation_level ADVANCED --warning_level QUIET --externs type/externs/*.js --use_types_for_optimization >  dist/material.min.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +30,8 @@
     "google-closure-compiler": "^20200315.0.0",
     "tslint": "6.1.1",
     "typescript": "3.8.3"
+  },
+  "dependencies": {
+    "react-externs": "^0.13.6"
   }
 }
