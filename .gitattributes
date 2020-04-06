@@ -1,4 +1,5 @@
 * linguist-language=TypeScript
 3rdparty/*/* linguist-vendored
 type/externs/* linguist-vendored
+assets/js/* linguist-vendored
 index.html linguist-vendored
