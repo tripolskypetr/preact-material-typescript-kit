@@ -15,14 +15,14 @@
 
    - ### Production build is fast and small
 
-    This kit contains Google Closure Compiler externs, so you can use it's Advanced Compilation. Closure Compiler is a most powerfull Javascript optimisation tool in a world, it is used to optimize React builds. In the process of its work, the typescript namespace closures is expanded into real small chunks of optimised code in one file.
+  This kit contains Google Closure Compiler externs, so you can use it's Advanced Compilation. Closure Compiler is a most powerfull Javascript optimisation tool in a world, it is used to optimize React builds. In the process of its work, the typescript namespace closures is expanded into real small chunks of optimised code in one file.
 
    - ### PWA Caching ready
 
-    If you ever tried to create a PWA caching service worker for one of the existing macro frameworks (e.g. NextJS) you should be familiar with the pain. These Frankenstein monsters from build tools give out a completely random set of files that cannot be controlled by one programmer. The output of the Closure Compiler fits into a single file, allowing you to quickly make deploy.
+  If you ever tried to create a PWA caching service worker for one of the existing macro frameworks (e.g. NextJS) you should be familiar with the pain. These Frankenstein monsters from build tools give out a completely random set of files that cannot be controlled by one programmer. The output of the Closure Compiler fits into a single file, allowing you to quickly make deploy.
 
    - ## Cordova ready
 
-    For those who need real cross-platform
+  For those who need real cross-platform
 
 <img src="assets/img/deadmau5.png" height="38px" width="55px" align="right" />
