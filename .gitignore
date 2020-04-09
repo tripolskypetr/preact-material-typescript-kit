@@ -5,9 +5,6 @@ dist/*.js.map
 dist/*.d.ts
 dist/*.js
 
-type/externs/*.js
-type/externs/*.sample
-
 .DS_Store
 .AppleDouble
 .LSOverride
