@@ -1,15 +1,19 @@
-/// <reference path="./components/Counter.tsx"/>
+/// <reference path="./components/TopAppBar.tsx"/>
 
 namespace Material {
 
   const {h, render} = preact;
 
-  /*class Something extends preact.Component {
-    render() {
-      return <p>hello</p>
-    }
-  }*/
+  const {TopBar, TopBarTitle, TopBarSection, TopBarSectionAlign} = TopAppBar;
 
-  render(<Counter/>, document.body, document.body.lastChild as HTMLElement);
+  const App = () => (
+    <TopBar>
+      <TopBarSection align={TopBarSectionAlign.Start}>
+        <TopBarTitle label="Material"/>
+      </TopBarSection>
+    </TopBar>
+  );
+
+  render(<App/>, document.body, document.body.lastChild as HTMLElement);
 
 }
