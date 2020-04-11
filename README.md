@@ -21,9 +21,9 @@
 
   If you ever tried to create a PWA caching service worker for one of the existing macro frameworks (e.g. NextJS) you should be familiar with the pain. These Frankenstein monsters from build tools give out a completely random set of files that cannot be controlled by one programmer. The output of the Closure Compiler fits into a single file, allowing you to quickly make deploy.
 
-   - ### Cordova ready
+   - ### Cordova ready (joke)
 
-  For those who need real cross-platform
+  For those who need real cross-platform. There's a grain of truth in every joke, I'm going to create mobile applications with this tool.
 
 ## Can't live without other packages?
 
