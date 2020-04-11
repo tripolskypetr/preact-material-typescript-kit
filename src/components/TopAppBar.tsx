@@ -4,6 +4,8 @@ namespace Material {
   const {style} = typestyle;
   const {h} = preact;
 
+  const {MDCTextField} = mdc.textField;
+
   export namespace TopAppBar {
 
     export const enum TopBarSectionAlign {
