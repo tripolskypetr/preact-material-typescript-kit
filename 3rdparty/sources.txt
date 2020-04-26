@@ -4,5 +4,6 @@ preact - npm package 'preact' version 10.3.4
 preactRouter - npm package 'preact-router' version 3.2.1
 material-components-web - https://github.com/material-components/material-components-web material-components-web@5.1.0 from unpkg.com
 typestyle - https://github.com/typestyle/typestyle Latest commit da0a810 on 1 April 2020
+classnames - https://github.com/JedWatson/classnames Latest commit b166fd1 on 10 Mar
 
 See also https://github.com/preactjs/preact-devtools/releases 0.2.1 Latest commit 2c09cbb 7 hours ago

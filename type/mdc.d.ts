@@ -658,14 +658,15 @@ declare namespace mdc {
       supportsCssVariables: any;
       getNormalizedEventCoords: any;
     }
-    export namespace MDCRipple {
-      export function unbounded(...args: any): any;
-      export function activate(...args: any): any;
-      export function deactivate(...args: any): any;
-      export function layout(...args: any): any;
-      export function getDefaultFoundation(...args: any): any;
-      export function initialSyncWithDOM(...args: any): any;
-      export function setUnbounded_(...args: any): any;
+    export class MDCRipple {
+      constructor(...args: any);
+      unbounded(...args: any): any;
+      activate(...args: any): any;
+      deactivate(...args: any): any;
+      layout(...args: any): any;
+      getDefaultFoundation(...args: any): any;
+      initialSyncWithDOM(...args: any): any;
+      setUnbounded_(...args: any): any;
     }
     export class cssClasses {
       BG_FOCUSED: any;
