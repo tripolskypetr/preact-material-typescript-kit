@@ -1,5 +1,6 @@
 /// <reference path="./components/button/index.tsx"/>
 /// <reference path="./components/material-icon/index.tsx"/>
+/// <reference path="./components/checkbox/index.tsx"/>
 
 namespace Material {
 
@@ -7,9 +8,12 @@ namespace Material {
 
   const App = () => {
     return (
-      <Button icon={<MaterialIcon hasRipple={true} icon="add"/>} onClick={(e) => console.log(e)}>
-        Hello!
-      </Button>
+      <div>
+        <Checkbox/>
+        <Button icon={<MaterialIcon icon="add"/>}>
+          Hello!
+        </Button>
+      </div>
     );
   };
 

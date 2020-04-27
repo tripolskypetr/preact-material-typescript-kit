@@ -38,6 +38,7 @@ namespace Material {
       icon?: ButtonIcon;
       trailingIcon?: ButtonIcon;
       children?: preact.VNode;
+      onClick?: (e: any) => void;
     }
 
     export const Button = ({
@@ -50,6 +51,7 @@ namespace Material {
       children = unknown,
       trailingIcon = null,
       icon = null,
+      onClick = (e) => console.log({e}),
       ...otherProps
     }: ButtonProps) => {
       const props = {
@@ -60,11 +62,12 @@ namespace Material {
           [CSS_CLASSES.DENSE]: dense,
         }),
         disabled,
+        onClick,
         ...otherProps,
       };
       return (
         <button {...props}>
-          <div class="mdc-button__ripple"></div>
+          <div className="mdc-button__ripple"></div>
           {!trailingIcon ? renderIcon(icon) : null}
           <span className={CSS_CLASSES.LABEL}>{children}</span>
           {trailingIcon ? renderIcon(trailingIcon) : null}
@@ -77,8 +80,8 @@ namespace Material {
         className: classNames(CSS_CLASSES.ICON, icon.props.className || icon.props.class),
       }) : null;
 
-  }
+  } // namespace Internal
 
   export const Button = withRipple(Internal.Button);
 
-}
+} // namespace Material

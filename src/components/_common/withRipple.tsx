@@ -6,7 +6,7 @@ namespace Material {
 
   const {
     useRef,
-    useEffect,
+    useEffect
   } = preactHooks;
 
   const {
@@ -22,8 +22,7 @@ namespace Material {
       useEffect(() => {
         const {base} = componentRef.current;
         const ripple = new MDCRipple(base);
-        console.log(componentRef);
-      });
+      }, []);
 
       return (
         <Component {...props} ref={componentRef}/>

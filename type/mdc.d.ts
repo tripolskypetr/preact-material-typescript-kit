@@ -23,7 +23,7 @@ declare namespace mdc {
     }
   }
   export namespace checkbox {
-    export function MDCCheckbox(...args: any): any;
+    export var MDCCheckbox: any;
     export class cssClasses {
       ANIM_CHECKED_INDETERMINATE: any;
       ANIM_CHECKED_UNCHECKED: any;
@@ -56,6 +56,7 @@ declare namespace mdc {
       ANIM_END_LATCH_MS: any;
     }
     export class MDCCheckboxFoundation {
+      constructor(...args: any[]);
       init: any;
       destroy: any;
       setDisabled: any;
@@ -351,7 +352,7 @@ declare namespace mdc {
     }
   }
   export namespace formField {
-    export function MDCFormField(...args: any): any;
+    export var MDCFormField: any;
     export class cssClasses {
       ROOT: any;
     }

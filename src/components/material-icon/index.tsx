@@ -10,14 +10,11 @@ namespace Material {
   export interface MaterialIconProps {
     icon?: string;
     className?: string;
-    hasRipple?: boolean;
-    unbounded?: boolean;
   }
 
   export const MaterialIcon = ({
     className,
     icon,
-    unbounded,
     ...otherProps
   }: MaterialIconProps) => (
     <i className={classNames('material-icons', className)} {...otherProps}>
@@ -25,4 +22,4 @@ namespace Material {
     </i>
   );
 
-}
+} // namespace Material
