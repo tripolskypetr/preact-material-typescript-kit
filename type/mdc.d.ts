@@ -945,7 +945,9 @@ declare namespace mdc {
     }
   }
   export namespace switchControl {
-    export function MDCSwitch(...args: any): any;
+    export class MDCSwitch {
+      constructor(...args: any[]);
+    }
     export class cssClasses {
       CHECKED: any;
       DISABLED: any;

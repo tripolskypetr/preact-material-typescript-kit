@@ -8,6 +8,7 @@ namespace Material {
     useRef,
     useState,
     useEffect,
+    useCallback,
     useLayoutEffect,
   } = preactHooks;
 
@@ -26,16 +27,13 @@ namespace Material {
     value = '',
     name = '',
     label = '',
+    onChange = (e) => console.log({e}),
     ...otherProps
   }) => {
 
     const radioElement = useRef(null);
     const rootElement = useRef(null);
     const mdcRadio = useRef(null);
-
-    const [state, setState] = useState({
-      checked, disabled, value
-    });
 
     useLayoutEffect(() => {
       const checkBox = new MDCRadio(radioElement.current);
@@ -45,23 +43,16 @@ namespace Material {
       return () => mdcRadio.current = null;
     }, []);
 
-    useEffect(() => {
-      setState({checked, value, disabled});
-    }, [checked, value, disabled]);
-
-    useEffect(() => {
-      const {checked, value, disabled} = state;
-      if (mdcRadio.current) {
-        mdcRadio.current.disabled = disabled;
-        mdcRadio.current.checked = checked;
-        mdcRadio.current.value = value;
-      }
-    }, [state.checked, state.value, state.disabled]);
-
     return (
       <div ref={rootElement} className={classNames('mdc-form-field', className)} {...otherProps}>
         <div className='mdc-radio' ref={radioElement}>
-          <input type='radio' name={name} className='mdc-radio__native-control'/>
+          <input type='radio'
+            value={value}
+            checked={checked}
+            disabled={disabled}
+            name={name}
+            onChange={onChange}
+            className='mdc-radio__native-control'/>
           <div className='mdc-radio__background'>
             <div className='mdc-radio__outer-circle' />
             <div className='mdc-radio__inner-circle' />

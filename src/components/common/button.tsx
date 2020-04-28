@@ -1,5 +1,5 @@
 
-/// <reference path="../_common/withRipple.tsx"/>
+/// <reference path="./withRipple.tsx"/>
 
 namespace Material {
 
