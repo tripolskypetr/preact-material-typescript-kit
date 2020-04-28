@@ -11,7 +11,7 @@ raised | Boolean | Enables raised variant.
 unelevated | Boolean | Enables unelevated variant.
 outlined | Boolean | Enables outlined variant.
 dense | Boolean | Enables dense variant.
-icon | Element | Icon to render within root element.
-trailingIcon | Element | Icon to render on the right side of the element
-children | String | Text to be displayed within root element.
+icon | String | Icon to render within root element.
+trailingIcon | String | Icon to render on the right side of the element
+label | String | Text to be displayed within root element.
 disabled | Boolean | Disables button if true.

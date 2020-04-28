@@ -19,91 +19,81 @@ namespace Material {
     MDCFormField,
   } = mdc.formField;
 
-  const {
-    withRipple
-  } = Common;
+  export const Checkbox = ({
+    checked = false,
+    disabled = false,
+    indeterminate = false,
+    className = '',
+    label = '',
+    onChange = (e) => console.log({ e }),
+    ...otherProps
+  }) => {
 
-  namespace Internal {
+    const checkBoxElement = useRef(null);
+    const inputElement = useRef(null);
+    const rootElement = useRef(null);
 
-    export const CheckBox = ({
-      checked = false,
-      disabled = false,
-      indeterminate = false,
-      className = '',
-      label = '',
-      onChange = (e) => console.log({e}),
-      ...otherProps
-    }) => {
+    const mdcCheckbox = useRef(null);
 
-      const checkBoxElement = useRef(null);
-      const inputElement = useRef(null);
-      const rootElement = useRef(null);
+    const [state, setState] = useState({
+      checked, indeterminate, disabled
+    });
 
-      const mdcCheckbox = useRef(null);
+    useLayoutEffect(() => {
+      const checkBox = new MDCCheckbox(checkBoxElement.current);
+      const formField = new MDCFormField(rootElement.current);
+      formField.input = checkBox;
+      mdcCheckbox.current = checkBox;
+      return () => mdcCheckbox.current = null;
+    }, []);
 
-      const [state, setState] = useState({
-        checked, indeterminate, disabled
-      });
+    useEffect(() => {
+      setState({ checked, disabled, indeterminate });
+      inputElement.current.indeterminate = indeterminate;
+    }, [checked, disabled, indeterminate]);
 
-      useLayoutEffect(() => {
-        const checkBox = new MDCCheckbox(checkBoxElement.current);
-        const formField = new MDCFormField(rootElement.current);
-        formField.input = checkBox;
-        mdcCheckbox.current = checkBox;
-        return () => mdcCheckbox.current = null;
-      }, []);
+    useEffect(() => {
+      const { checked, disabled, indeterminate } = state;
+      if (mdcCheckbox.current) {
+        mdcCheckbox.current.checked = checked;
+        mdcCheckbox.current.disabled = disabled;
+        mdcCheckbox.current.indeterminate = indeterminate;
+      }
+    }, [state.checked, state.disabled, state.indeterminate]);
 
-      useEffect(() => {
-        setState({checked, disabled, indeterminate});
-        inputElement.current.indeterminate = indeterminate;
-      }, [checked, disabled, indeterminate]);
-
-      useEffect(() => {
-        const {checked, disabled, indeterminate} = state;
-        if (mdcCheckbox.current) {
-          mdcCheckbox.current.checked = checked;
-          mdcCheckbox.current.disabled = disabled;
-          mdcCheckbox.current.indeterminate = indeterminate;
-        }
-      }, [state.checked, state.disabled, state.indeterminate]);
-
-      const handleChange = (e) => {
-        const {checked, indeterminate} = e.target;
-        setState({checked, indeterminate, disabled});
-        inputElement.current.indeterminate = indeterminate;
-        onChange(e);
-      };
-
-      return (
-        <div ref={rootElement} className={classNames('mdc-form-field', className)} {...otherProps}>
-          <div className={'mdc-checkbox'} ref={checkBoxElement}>
-            <input type="checkbox"
-              class="mdc-checkbox__native-control"
-              ref={inputElement}
-              value={state.checked}
-              onChange={handleChange}
-              disabled={state.disabled} />
-            <div className='mdc-checkbox__background'>
-              <svg
-                className='mdc-checkbox__checkmark'
-                viewBox='0 0 24 24'
-                focusable='false'>
-                <path
-                  className='mdc-checkbox__checkmark-path'
-                  fill='none'
-                  d='M1.73,12.91 8.1,19.28 22.79,4.59'/>
-              </svg>
-              <div className='mdc-checkbox__mixedmark' />
-            </div>
-            <div class="mdc-checkbox__ripple"></div>
-          </div>
-          {label ? <label>{label}</label> : null}
-        </div>
-      );
+    const handleChange = (e) => {
+      const { checked, indeterminate } = e.target;
+      setState({ checked, indeterminate, disabled });
+      inputElement.current.indeterminate = indeterminate;
+      onChange(e);
     };
 
-  } // namespace Internal
-
-  export const Checkbox = Internal.CheckBox;
+    return (
+      <div ref={rootElement} className={classNames('mdc-form-field', className)} {...otherProps}>
+        <div className={'mdc-checkbox'} ref={checkBoxElement}>
+          <input type="checkbox"
+            class="mdc-checkbox__native-control"
+            ref={inputElement}
+            value={state.checked}
+            onChange={handleChange}
+            disabled={state.disabled} />
+          <div className='mdc-checkbox__background'>
+            <svg
+              className='mdc-checkbox__checkmark'
+              viewBox='0 0 24 24'
+              focusable='false'>
+              <path
+                className='mdc-checkbox__checkmark-path'
+                fill='none'
+                d='M1.73,12.91 8.1,19.28 22.79,4.59' />
+            </svg>
+            <div className='mdc-checkbox__mixedmark' />
+          </div>
+          <div class="mdc-checkbox__ripple"></div>
+        </div>
+        {label ? <label>{label}</label> : null}
+      </div>
+    );
+  };
 
 } // namespace Material

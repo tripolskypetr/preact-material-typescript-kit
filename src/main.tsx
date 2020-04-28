@@ -14,9 +14,7 @@ namespace Material {
     return (
       <div>
         <Checkbox label="hello!" checked={checked}/>
-        <Button icon={<Icon icon="add"/>} onClick={() => setChecked(!checked)}>
-          Hello!
-        </Button>
+        <Button label="hello!" icon='add' onClick={() => setChecked(!checked)}/>
         <form>
           <Radio name="sampleGroup" value="1" label="First"/>
           <Radio name="sampleGroup" value="2" label="Second" checked={true}/>

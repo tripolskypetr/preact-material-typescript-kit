@@ -18,10 +18,12 @@ namespace Material {
     export const withRipple = (Component: preact.ComponentType<any>) => (props) => {
 
       const componentRef = useRef(null);
+      const mdcRipple = useRef(null);
 
       useEffect(() => {
         const {base} = componentRef.current;
-        const ripple = new MDCRipple(base);
+        mdcRipple.current = new MDCRipple(base);
+        return () => mdcRipple.current = null;
       }, []);
 
       return (
