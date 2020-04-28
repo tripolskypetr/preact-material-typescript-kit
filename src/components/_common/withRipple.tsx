@@ -13,24 +13,20 @@ namespace Material {
     MDCRipple
   } = mdc.ripple;
 
-  export namespace Common {
+  export const withRipple = (Component: preact.ComponentType<any>) => (props) => {
 
-    export const withRipple = (Component: preact.ComponentType<any>) => (props) => {
+    const componentRef = useRef(null);
+    const mdcRipple = useRef(null);
 
-      const componentRef = useRef(null);
-      const mdcRipple = useRef(null);
+    useEffect(() => {
+      const {base} = componentRef.current;
+      mdcRipple.current = new MDCRipple(base);
+      return () => mdcRipple.current = null;
+    }, []);
 
-      useEffect(() => {
-        const {base} = componentRef.current;
-        mdcRipple.current = new MDCRipple(base);
-        return () => mdcRipple.current = null;
-      }, []);
-
-      return (
-        <Component {...props} ref={componentRef}/>
-      );
-    };
-
-  }
+    return (
+      <Component {...props} ref={componentRef}/>
+    );
+  };
 
 }
