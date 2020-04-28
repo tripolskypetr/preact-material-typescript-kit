@@ -82,6 +82,6 @@ namespace Material {
 
   } // namespace Internal
 
-  export const Button = withRipple(Internal.Button);
+  export const Button = Internal.Button;//withRipple(Internal.Button);
 
 } // namespace Material

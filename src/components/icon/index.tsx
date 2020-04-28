@@ -12,7 +12,7 @@ namespace Material {
     className?: string;
   }
 
-  export const MaterialIcon = ({
+  export const Icon = ({
     className,
     icon,
     ...otherProps

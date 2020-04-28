@@ -657,7 +657,9 @@ declare namespace mdc {
     }
   }
   export namespace radio {
-    export function MDCRadio(...args: any): any;
+    export class MDCRadio {
+      constructor(...args: any);
+    }
     export class strings {
       NATIVE_CONTROL_SELECTOR: any;
     }
@@ -666,6 +668,7 @@ declare namespace mdc {
       ROOT: any;
     }
     export class MDCRadioFoundation {
+      constructor(...args: any[]);
       setDisabled: any;
     }
   }
