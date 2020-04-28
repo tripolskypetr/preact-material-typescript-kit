@@ -9,7 +9,7 @@ namespace Material {
   const App = () => {
     return (
       <div>
-        <Checkbox/>
+        <Checkbox indeterminate={true}/>
         <Button icon={<MaterialIcon icon="add"/>}>
           Hello!
         </Button>

@@ -26,7 +26,7 @@ namespace Material {
     export const CheckBox = ({
       checked = false,
       disabled = false,
-      indeterminate = true,
+      indeterminate = false,
       className = '',
       onChange = (e) => console.log({e}),
       ...otherProps
@@ -79,6 +79,8 @@ namespace Material {
         if (foundation) {
           foundation.handleChange();
         }
+        const { indeterminate } = state;
+        inputElement.current.indeterminate = indeterminate;
       }, [state]);
 
       const handleChange = (e) => {

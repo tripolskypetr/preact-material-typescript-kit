@@ -6,6 +6,21 @@
 // tslint:disable: variable-name
 // tslint:disable: class-name
 declare namespace mdc {
+
+  export interface MDCCheckboxAdapter {
+    addClass(className: string): void;
+    forceLayout(): void;
+    hasNativeControl(): boolean;
+    isAttachedToDOM(): boolean;
+    isChecked(): boolean;
+    isIndeterminate(): boolean;
+    removeClass(className: string): void;
+    removeNativeControlAttr(attr: string): void;
+    setNativeControlAttr(attr: string, value: string): void;
+    setNativeControlDisabled(disabled: boolean): void;
+  }
+
+
   export function autoInit(...args: any): any;
   export namespace base {
     export class MDCComponent {
