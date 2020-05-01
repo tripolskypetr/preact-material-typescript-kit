@@ -49,3 +49,47 @@ className | String | Classes to be applied to the switch element
 checked | Boolean | Indicates whether the switch is checked ("on")
 disabled | Boolean | Indicates whether the switch is disabled
 label | String | Label associated with switch control.
+
+## TextField Props
+
+Prop Name | Type | Description
+--- | --- | ---
+value | string | Proxies to the foundation’s getValue/setValue methods.
+disabled | boolean | Proxies to the foundation’s isDisabled/setDisabled methods.
+valid | boolean | Proxies to the foundation’s isValid/setValid methods.
+className | String | Classes to be applied to the TextField element
+leadingIcon | String | TextField leading icon
+trailingIcon | String | TextField trailing icon
+fullWidth | boolean | Styles the text field as a full width textarea field.
+outlined | boolean | Styles the text field as an outlined text field.,
+textArea | boolean | Indicates the text field is a textarea tag.
+focused | boolean | Styles the text field as a text field in focus.
+label | string | Styles the text field label.
+helperText | string | TextField helper text
+
+## IconButton Props
+
+Prop Name | Type | Description
+--- | --- | ---
+on | boolean | IconButton state
+iconOn | string | IconButton 'on' icon
+iconOff | string | IconButton 'off' icon
+disabled | boolean | IconButton disable switch
+color | string | IconButton color
+
+## Chip Props
+
+Prop Name | Type | Description
+--- | --- | ---
+icon | string | Chip icon
+className | string | Chip classname
+
+## Floating Action Button Props
+
+Prop Name | Type | Description
+--- | --- | ---
+className | String | Classes to be applied to the root element.
+exited | Boolean | When true animates the FAB out of view. When this false, the FAB will return to view.
+mini | Boolean |  Enables the mini variant. 
+icon | Element | The icon.
+textLabel | String | The label, which makes the FAB extended.

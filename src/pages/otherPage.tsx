@@ -11,6 +11,7 @@ namespace Material {
   export const OtherPage = () => (
     <Fragment>
       <IconButton/>
+      <Chip/>
     </Fragment>
   );
 

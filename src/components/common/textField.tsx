@@ -56,7 +56,6 @@ namespace Material {
     value = '',
     label = '',
     helperText = '',
-    maxLength = 20,
     onInput = (e) => console.log({e}),
     ...otherProps
   }) => {

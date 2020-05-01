@@ -5,3 +5,5 @@
 /// <reference path="./common/switch.tsx"/>
 /// <reference path="./common/textField.tsx"/>
 /// <reference path="./common/iconButton.tsx"/>
+/// <reference path="./common/chip.tsx"/>
+/// <reference path="./common/fab.tsx"/>
