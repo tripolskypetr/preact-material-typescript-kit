@@ -5,6 +5,10 @@ namespace Material {
   } = preact;
 
   const {
+    style
+  } = typestyle;
+
+  const {
     useRef,
     useState,
     useEffect,
@@ -12,24 +16,39 @@ namespace Material {
   } = preactHooks;
 
   const {
-    MDCSwitch
+    MDCSwitch,
   } = mdc.switchControl;
+
+  const {
+    MDCFormField,
+  } = mdc.formField;
+
+  const switchPaddingFix = style({
+    padding: '11px',
+  });
 
   export const Switch = ({
     className = '',
+    label = '',
     checked = false,
     disabled = false,
     ...otherProps
   }) => {
 
     const [state, setState] = useState({checked, disabled});
+    const switchElement = useRef(null);
     const rootElement = useRef(null);
     const mdcSwitch = useRef(null);
 
     useLayoutEffect(() => {
-      mdcSwitch.current = new MDCSwitch(rootElement.current);
+      const form = new MDCFormField(rootElement.current);
+      const sw = new MDCSwitch(switchElement.current);
+      form.input = sw;
+      mdcSwitch.current = sw;
       return () => mdcSwitch.current = null;
     }, []);
+
+    useEffect(() => setState({checked, disabled}), [checked, disabled]);
 
     useEffect(() => {
       const {checked, disabled} = state;
@@ -41,14 +60,16 @@ namespace Material {
 
     return (
       <div ref={rootElement} className={classNames('mdc-form-field', className)} {...otherProps}>
-        <div class="mdc-switch">
-          <div class="mdc-switch__track"></div>
-          <div class="mdc-switch__thumb-underlay">
-            <div class="mdc-switch__thumb"></div>
-            <input type="checkbox" disabled={state.disabled} checked={state.checked} class="mdc-switch__native-control" role="switch" aria-checked="false"/>
+        <div className={switchPaddingFix}>
+          <div ref={switchElement} className="mdc-switch">
+            <div class="mdc-switch__track"></div>
+            <div class="mdc-switch__thumb-underlay">
+              <div class="mdc-switch__thumb"></div>
+              <input type="checkbox" disabled={state.disabled} checked={state.checked} class="mdc-switch__native-control" role="switch" aria-checked="false"/>
+            </div>
           </div>
         </div>
-        <label>off/on</label>
+        {label ? <label class={switchPaddingFix}>{label}</label> : null}
       </div>
     );
   }

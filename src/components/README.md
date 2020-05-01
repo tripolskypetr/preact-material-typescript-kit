@@ -41,3 +41,11 @@ value | String | The associated value with the radio element.
 disabled | Boolean | Default `false`. When true will disable the radio element.
 label | String | Label associated with radio input control.
 
+## Switch Props
+
+Prop Name | Type | Description
+--- | --- | ---
+className | String | Classes to be applied to the switch element
+checked | Boolean | Indicates whether the switch is checked ("on")
+disabled | Boolean | Indicates whether the switch is disabled
+label | String | Label associated with switch control.
