@@ -2,7 +2,7 @@ bootstrap-utilities - https://github.com/rishabh-rajgarhia/bootstrap-4-utilities
 material-design-icons - https://github.com/google/material-design-icons/tree/master/iconfont Latest commit eae603a on 21 Mar 2016
 preact - npm package 'preact' version 10.3.4
 preactRouter - npm package 'preact-router' version 3.2.1
-material-components-web - https://github.com/material-components/material-components-web material-components-web@5.1.0 from unpkg.com
+material-components-web - https://github.com/material-components/material-components-web material-components-web@4.0.0
 typestyle - https://github.com/typestyle/typestyle Latest commit da0a810 on 1 April 2020
 classnames - https://github.com/JedWatson/classnames Latest commit b166fd1 on 10 Mar
 

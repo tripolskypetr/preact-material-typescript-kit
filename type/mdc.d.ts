@@ -1115,7 +1115,9 @@ declare namespace mdc {
     }
   }
   export namespace textField {
-    export function MDCTextField(...args: any): any;
+    export class MDCTextField {
+      constructor(...args: any[]);
+    }
     export class strings {
       ARIA_CONTROLS: any;
       INPUT_SELECTOR: any;

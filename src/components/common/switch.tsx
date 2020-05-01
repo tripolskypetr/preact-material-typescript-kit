@@ -65,7 +65,7 @@ namespace Material {
             <div class="mdc-switch__track"></div>
             <div class="mdc-switch__thumb-underlay">
               <div class="mdc-switch__thumb"></div>
-              <input type="checkbox" disabled={state.disabled} checked={state.checked} class="mdc-switch__native-control" role="switch" aria-checked="false"/>
+              <input type="checkbox" disabled={disabled} checked={checked} class="mdc-switch__native-control" role="switch" aria-checked="false"/>
             </div>
           </div>
         </div>
