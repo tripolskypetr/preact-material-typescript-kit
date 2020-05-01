@@ -45,7 +45,11 @@ namespace Material {
       const sw = new MDCSwitch(switchElement.current);
       form.input = sw;
       mdcSwitch.current = sw;
-      return () => mdcSwitch.current = null;
+      return () => {
+        mdcSwitch.current = null;
+        form.destroy();
+        sw.destroy()
+      };
     }, []);
 
     useEffect(() => setState({checked, disabled}), [checked, disabled]);

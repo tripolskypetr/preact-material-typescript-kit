@@ -44,7 +44,11 @@ namespace Material {
       const formField = new MDCFormField(rootElement.current);
       formField.input = checkBox;
       mdcCheckbox.current = checkBox;
-      return () => mdcCheckbox.current = null;
+      return () => {
+        mdcCheckbox.current = null;
+        formField.destroy();
+        checkBox.destroy();
+      }
     }, []);
 
     useEffect(() => {

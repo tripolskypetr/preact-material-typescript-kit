@@ -63,57 +63,26 @@ namespace Material {
     const mdcTextField = useRef(null);
     const textFieldElement = useRef(null);
 
-    const [state, setState] = useState({
-      trailingIcon,
-      leadingIcon,
-      helperText,
-      disabled,
-      value,
-      valid,
-    });
-
     useLayoutEffect(() => {
       const text = new MDCTextField(textFieldElement.current);
       mdcTextField.current = text;
-      return () => mdcTextField.current = null;
+      return () => {
+        mdcTextField.current = null;
+        text.destroy();
+      }
     }, [fullWidth, outlined, textArea]);
-
-    useEffect(() => {
-      setState({
-        trailingIcon,
-        leadingIcon,
-        helperText,
-        disabled,
-        value,
-        valid,
-      });
-    }, [
-      trailingIcon,
-      leadingIcon,
-      helperText,
-      disabled,
-      value,
-      valid,
-    ]);
 
     useEffect(() => {
       const {current} = mdcTextField;
       if (current) {
-        current.value = state.value;
-        current.disabled = state.disabled;
-        current.valid = state.valid;
-        current.helperTextContent = state.helperText;
-        current.leadingIconContent = state.leadingIcon;
-        current.trailingIconContent = state.trailingIcon;
+        current.value = value;
+        current.disabled = disabled;
+        current.valid = valid;
+        current.helperTextContent = helperText;
+        current.leadingIconContent = leadingIcon;
+        current.trailingIconContent = trailingIcon;
       }
-    }, [
-      state.trailingIcon,
-      state.leadingIcon,
-      state.helperText,
-      state.disabled,
-      state.value,
-      state.valid,
-    ]);
+    }, [trailingIcon, leadingIcon, helperText, disabled, value, valid]);
 
     const classes = () => classNames(CSS_CLASSES.ROOT, 'text-field', {
       [CSS_CLASSES.FULLWIDTH]: fullWidth,
@@ -131,7 +100,7 @@ namespace Material {
     return (
       <div class="text-field-container" className={classNames(textFieldPaddingFix, className)}  {...otherProps}>
         <label ref={textFieldElement} className={classes()}>
-          {state.leadingIcon && <Icon className="mdc-text-field__icon" icon={state.leadingIcon}/>}
+          {leadingIcon && <Icon className="mdc-text-field__icon" icon={leadingIcon}/>}
           {textArea || fullWidth ? <textarea disabled={disabled} class="mdc-text-field__input" onInput={onInput}/> : <input disabled={disabled} onInput={onInput} class="mdc-text-field__input"/>}
           {outlined || textArea || fullWidth ? <div class="mdc-notched-outline">
             <div class="mdc-notched-outline__leading"/>
@@ -140,12 +109,12 @@ namespace Material {
             </div>
             <div class="mdc-notched-outline__trailing"/>
           </div> : (label && <label class="mdc-floating-label">{label}</label>)}
-          {state.trailingIcon ? <Icon className="mdc-text-field__icon" icon={state.trailingIcon}/> : null}
+          {trailingIcon ? <Icon className="mdc-text-field__icon" icon={trailingIcon}/> : null}
         </label>
-        {state.helperText && (
+        {helperText && (
           <div class="mdc-text-field-helper-line">
             <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg">
-              {state.helperText}
+              {helperText}
             </p>
           </div>
         )}

@@ -24,7 +24,10 @@ namespace Material {
         const ripple = new MDCRipple(base);
         ripple.unbounded = unbounded;
         mdcRipple.current = ripple;
-        return () => mdcRipple.current = null;
+        return () => {
+          mdcRipple.current = null;
+          ripple.destroy();
+        };
       }, []);
 
       return (

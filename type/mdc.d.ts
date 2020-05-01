@@ -661,6 +661,7 @@ declare namespace mdc {
   export namespace radio {
     export class MDCRadio {
       constructor(...args: any);
+      destroy: any;
     }
     export class strings {
       NATIVE_CONTROL_SELECTOR: any;
@@ -688,6 +689,7 @@ declare namespace mdc {
       getDefaultFoundation(...args: any): any;
       initialSyncWithDOM(...args: any): any;
       setUnbounded_(...args: any): any;
+      destroy: any;
     }
     export class cssClasses {
       BG_FOCUSED: any;
@@ -741,7 +743,20 @@ declare namespace mdc {
     }
   }
   export namespace select {
-    export function MDCSelect(...args: any): any;
+    export class MDCSelect {
+      constructor (...args: any);
+      selectedIndex: any;
+      value: any;
+      listen: any;
+      unlisten: any;
+      disabled: any;
+      valid: any;
+      required: any;
+      leadingIconAriaLabel: any;
+      leadingIconContent: any;
+      helperTextContent: any;
+      destroy: any;
+    }
     export class cssClasses {
       ACTIVATED: any;
       DISABLED: any;
@@ -949,6 +964,7 @@ declare namespace mdc {
   export namespace switchControl {
     export class MDCSwitch {
       constructor(...args: any[]);
+      destroy: any;
     }
     export class cssClasses {
       CHECKED: any;
@@ -1119,6 +1135,7 @@ declare namespace mdc {
   export namespace textField {
     export class MDCTextField {
       constructor(...args: any[]);
+      destroy: any;
     }
     export class strings {
       ARIA_CONTROLS: any;

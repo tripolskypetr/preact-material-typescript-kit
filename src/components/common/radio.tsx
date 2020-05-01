@@ -6,9 +6,6 @@ namespace Material {
 
   const {
     useRef,
-    useState,
-    useEffect,
-    useCallback,
     useLayoutEffect,
   } = preactHooks;
 
@@ -40,7 +37,11 @@ namespace Material {
       const formField = new MDCFormField(rootElement.current);
       formField.input = checkBox;
       mdcRadio.current = checkBox;
-      return () => mdcRadio.current = null;
+      return () => {
+        mdcRadio.current = null;
+        formField.destroy();
+        checkBox.destroy();
+      };
     }, []);
 
     return (

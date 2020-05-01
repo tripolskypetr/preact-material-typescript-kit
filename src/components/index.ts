@@ -7,3 +7,4 @@
 /// <reference path="./common/iconButton.tsx"/>
 /// <reference path="./common/chip.tsx"/>
 /// <reference path="./common/fab.tsx"/>
+/// <reference path="./common/select.tsx"/>

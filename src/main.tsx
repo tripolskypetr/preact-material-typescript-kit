@@ -3,6 +3,7 @@
 /// <reference path="./pages/radioPage.tsx"/>
 /// <reference path="./pages/textFieldPage.tsx"/>
 /// <reference path="./pages/otherPage.tsx"/>
+/// <reference path="./pages/selectPage.tsx"/>
 
 namespace Material {
 
@@ -17,6 +18,7 @@ namespace Material {
       <CheckBoxPage/>
       <RadioPage/>
       <TextFieldPage/>
+      <SelectPage/>
       <OtherPage/>
     </Fragment>
   );

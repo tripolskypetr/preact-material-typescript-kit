@@ -93,3 +93,17 @@ exited | Boolean | When true animates the FAB out of view. When this false, the 
 mini | Boolean |  Enables the mini variant. 
 icon | Element | The icon.
 textLabel | String | The label, which makes the FAB extended.
+
+## Select Props
+Prop Name | Type | Description
+--- | --- | ---
+value | string | The value/data-value of the currently selected option.
+selectedIndex | number | The index of the currently selected option. Set to -1 if no option is currently selected. Changing this property will update the select element. disabled	boolean	Whether or not the component is disabled. Setting this sets the disabled state on the component.
+valid | boolean | Whether or not the component is in a valid state. Setting this updates styles on the component, but does not affect the native validity state.
+required | boolean | Whether or not the component is required. Setting this updates the required or aria-required attribute on the component and enables validation.
+disabled = false,
+outlined = false,
+className = '',
+label = 'hello world',
+items = [],
+
