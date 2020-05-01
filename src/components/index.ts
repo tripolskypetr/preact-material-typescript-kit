@@ -4,3 +4,4 @@
 /// <reference path="./common/radio.tsx"/>
 /// <reference path="./common/switch.tsx"/>
 /// <reference path="./common/textField.tsx"/>
+/// <reference path="./common/iconButton.tsx"/>

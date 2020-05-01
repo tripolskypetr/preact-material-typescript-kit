@@ -381,7 +381,9 @@ declare namespace mdc {
     }
   }
   export namespace iconButton {
-    export function MDCIconButtonToggle(...args: any): any;
+    export class MDCIconButtonToggle {
+      constructor (...args: any);
+    }
     export class cssClasses {
       ICON_BUTTON_ON: any;
       ROOT: any;
@@ -679,7 +681,7 @@ declare namespace mdc {
     }
     export class MDCRipple {
       constructor(...args: any);
-      unbounded(...args: any): any;
+      unbounded: boolean;
       activate(...args: any): any;
       deactivate(...args: any): any;
       layout(...args: any): any;

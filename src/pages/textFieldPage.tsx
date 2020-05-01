@@ -19,6 +19,7 @@ namespace Material {
     const [outlined, setOutlined] = useState(false);
     const [fullWidth, setFullWidth] = useState(false);
     const [textArea, setTextArea] = useState(false);
+    const [disabled, setDisabled] = useState(false);
     const [text, setText] = useState('');
 
     return (
@@ -29,6 +30,7 @@ namespace Material {
           <Button label={`outlined (${outlined ? 'true' : 'false'})`} onClick={() => setOutlined(!outlined)}/>
           <Button label={`fullWidth (${fullWidth ? 'true' : 'false'})`} onClick={() => setFullWidth(!fullWidth)}/>
           <Button label={`textArea (${textArea ? 'true' : 'false'})`} onClick={() => setTextArea(!textArea)}/>
+          <Button label={`disabled (${disabled ? 'true' : 'false'})`} onClick={() => setDisabled(!disabled)}/>
         </div>
         <div>
           <TextField
@@ -40,6 +42,7 @@ namespace Material {
             outlined={outlined}
             label="hello!"
             value={text}
+            disabled={disabled}
             helperText={text}/>
         </div>
       </Fragment>

@@ -48,8 +48,10 @@ namespace Material {
       );
     };
 
+    export type ButtonProps = Parameters<typeof Button>[0];
+
   }
 
-  export const Button = withRipple(Internal.Button);
+  export const Button = withRipple<Internal.ButtonProps>(Internal.Button);
 
 } // namespace Material

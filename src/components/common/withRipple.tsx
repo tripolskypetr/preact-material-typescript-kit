@@ -6,27 +6,31 @@ namespace Material {
 
   const {
     useRef,
-    useEffect
+    useLayoutEffect,
   } = preactHooks;
 
   const {
     MDCRipple
   } = mdc.ripple;
 
-  export const withRipple = (Component: preact.ComponentType<any>) => (props) => {
+  export function withRipple<T = any>(Component: preact.ComponentType<any>, unbounded = false) {
+      return (props: T) => {
 
-    const componentRef = useRef(null);
-    const mdcRipple = useRef(null);
+      const componentRef = useRef(null);
+      const mdcRipple = useRef(null);
 
-    useEffect(() => {
-      const {base} = componentRef.current;
-      mdcRipple.current = new MDCRipple(base);
-      return () => mdcRipple.current = null;
-    }, []);
+      useLayoutEffect(() => {
+        const {base} = componentRef.current;
+        const ripple = new MDCRipple(base);
+        ripple.unbounded = unbounded;
+        mdcRipple.current = ripple;
+        return () => mdcRipple.current = null;
+      }, []);
 
-    return (
-      <Component {...props} ref={componentRef}/>
-    );
-  };
+      return (
+        <Component {...props} ref={componentRef}/>
+      );
+    };
+  }
 
 }
