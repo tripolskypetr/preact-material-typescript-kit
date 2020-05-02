@@ -31,10 +31,10 @@ namespace Material {
       );
     };
 
-    export type IconButtonProps = Parameters<typeof Button>[0];
+    export type IconButtonProps = Parameters<typeof IconButton>[0];
 
   }
 
-  export const IconButton = withRipple(Internal.IconButton, true);
+  export const IconButton = withRipple<Internal.IconButtonProps>(Internal.IconButton, true);
 
 }

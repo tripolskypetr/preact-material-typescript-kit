@@ -309,7 +309,13 @@ declare namespace mdc {
     export class util {
       createFocusTrapInstance: any;
     }
-    export function MDCDrawer(...args: any): any;
+    export class MDCDrawer {
+      constructor (...args: any);
+      listen: any;
+      unlisten: any;
+      destroy: any;
+      open: any;
+    }
     export class cssClasses {
       ANIMATE: any;
       CLOSING: any;

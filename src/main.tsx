@@ -13,30 +13,44 @@ namespace Material {
     Fragment,
   } = preact;
 
-  const App = () => (
-    <Fragment>
-      <TopAppBar>
-        <TopBarRow>
-          <TopBarSection align='start'>
-            <TopBarIcon>
-              <IconButton
-                iconOn="menu"
-                iconOff="arrow_back"
-                color="white"/>
-            </TopBarIcon>
-            <TopAppBarTitle label='Hello!'/>
-          </TopBarSection>
-        </TopBarRow>
-      </TopAppBar>
-      <FixedAdjust>
-        <CheckBoxPage/>
-        <RadioPage/>
-        <TextFieldPage/>
-        <SelectPage/>
-        <OtherPage/>
-      </FixedAdjust>
-    </Fragment>
-  );
+  const {
+    useState
+  } = preactHooks;
+
+  const App = () => {
+    const [drawerOpened, setDrawerOpened] = useState(false);
+    return (
+      <Fragment>
+        <Drawer open={drawerOpened} onChange={setDrawerOpened}>
+        </Drawer>
+        <DrawerAppContent>
+          <TopAppBar>
+            <TopBarRow>
+              <TopBarSection align='start'>
+                <TopBarIcon>
+                  <IconButton
+                    iconOn="menu"
+                    iconOff="arrow_back"
+                    on={drawerOpened}
+                    onChange={setDrawerOpened}
+                    color="white"/>
+                </TopBarIcon>
+                <TopAppBarTitle label='Hello!'/>
+              </TopBarSection>
+            </TopBarRow>
+          </TopAppBar>
+
+          <FixedAdjust>
+            <CheckBoxPage/>
+            <RadioPage/>
+            <TextFieldPage/>
+            <SelectPage/>
+            <OtherPage/>
+          </FixedAdjust>
+        </DrawerAppContent>
+      </Fragment>
+    );
+  }
 
   render(<App/>, document.body, document.body.lastChild as HTMLElement);
 

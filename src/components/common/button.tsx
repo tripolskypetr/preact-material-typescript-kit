@@ -26,7 +26,7 @@ namespace Material {
       outlined = false,
       dense = false,
       disabled = false,
-      label = '',
+      label = 'Button',
       trailingIcon = '',
       icon = '',
       onClick = (e) => console.log({e}),

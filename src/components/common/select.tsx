@@ -66,7 +66,7 @@ namespace Material {
       mdSelect.selectedIndex = selectedIndex;
       const handler = () => {
         const {selectedIndex} = mdSelect;
-        changeHandler(selectedIndex);
+        changeHandler(selectedIndex - 1);
       };
       mdSelectRef.current = mdSelect;
       mdSelect.listen('MDCSelect:change', handler);
