@@ -4,6 +4,7 @@
 /// <reference path="./pages/textFieldPage.tsx"/>
 /// <reference path="./pages/otherPage.tsx"/>
 /// <reference path="./pages/selectPage.tsx"/>
+/// <reference path="./pages/layoutPage.tsx"/>
 
 namespace Material {
 
@@ -44,6 +45,7 @@ namespace Material {
             <RadioPage/>
             <TextFieldPage/>
             <SelectPage/>
+            <LayoutPage/>
             <OtherPage/>
           </FixedAdjust>
         </DrawerAppContent>

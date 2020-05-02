@@ -1,7 +1,7 @@
 namespace Material {
 
   const {
-    createElement
+    createElement,
   } = preact;
 
   const CSS_CLASSES = {
@@ -27,21 +27,21 @@ namespace Material {
       align = 'middle',
       children = null,
       className = '',
-      columns = 4,
-      desktopColumns = 4,
-      order = 1,
-      phoneColumns = 2,
-      tabletColumns = 3,
+      columns = null,
+      desktopColumns = null,
+      order = null,
+      phoneColumns = null,
+      tabletColumns = null,
       tag = 'div',
       ...otherProps
     }) => {
       const classes = () => classNames(CSS_CLASSES.CELL, className, {
-        [`${CSS_CLASSES.CELL_ALIGN}-${align}`]: !align,
-        [`${CSS_CLASSES.CELL_ORDER}-${order}`]: !order,
-        [`${CSS_CLASSES.CELL_SPAN}-${columns}`]: !columns,
-        [`${CSS_CLASSES.CELL_SPAN}-${desktopColumns}-${DEVICE_TYPE.DESKTOP}`]: !desktopColumns,
-        [`${CSS_CLASSES.CELL_SPAN}-${phoneColumns}-${DEVICE_TYPE.PHONE}`]: !phoneColumns,
-        [`${CSS_CLASSES.CELL_SPAN}-${tabletColumns}-${DEVICE_TYPE.TABLET}`]: !tabletColumns,
+        [`${CSS_CLASSES.CELL_ALIGN}-${align}`]: align,
+        [`${CSS_CLASSES.CELL_ORDER}-${order}`]: order,
+        [`${CSS_CLASSES.CELL_SPAN}-${columns}`]: columns,
+        [`${CSS_CLASSES.CELL_SPAN}-${desktopColumns}-${DEVICE_TYPE.DESKTOP}`]: desktopColumns,
+        [`${CSS_CLASSES.CELL_SPAN}-${phoneColumns}-${DEVICE_TYPE.PHONE}`]: phoneColumns,
+        [`${CSS_CLASSES.CELL_SPAN}-${tabletColumns}-${DEVICE_TYPE.TABLET}`]: tabletColumns,
       });
       return createElement(tag, {
         className: classes(),
@@ -58,7 +58,7 @@ namespace Material {
       ...otherProps
     }) => {
       const classes = () => classNames(CSS_CLASSES.ROOT, className, {
-        [`${CSS_CLASSES.ALIGN}-${align}`]: !!align,
+        [`${CSS_CLASSES.ALIGN}-${align}`]: align,
         [CSS_CLASSES.FIXED_COLUMN_WIDTH]: fixedColumnWidth,
       });
       return createElement(tag, {

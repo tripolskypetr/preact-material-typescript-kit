@@ -24,9 +24,9 @@ namespace Material {
       useEffect(() => onChange(state.on), [state.on]);
       useEffect(() => setState({on}), [on]);
       return (
-        <button disabled={disabled} style={{color}} class={classNames('mdc-ripple-surface', 'mdc-icon-button')}>
-          <i onClick={toggle} class={classNames('material-icons', 'mdc-icon-button__icon', {'mdc-icon-button__icon--on': state.on})}>{iconOn}</i>
-          <i onClick={toggle} class={classNames('material-icons', 'mdc-icon-button__icon', {'mdc-icon-button__icon--on': !state.on})}>{iconOff}</i>
+        <button onClick={toggle} disabled={disabled} style={{color}} class={classNames('mdc-ripple-surface', 'mdc-icon-button')}>
+          <i class={classNames('material-icons', 'mdc-icon-button__icon', {'mdc-icon-button__icon--on': state.on})}>{iconOn}</i>
+          <i class={classNames('material-icons', 'mdc-icon-button__icon', {'mdc-icon-button__icon--on': !state.on})}>{iconOff}</i>
         </button>
       );
     };
