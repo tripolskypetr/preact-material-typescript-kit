@@ -16,140 +16,129 @@ namespace Material {
     MDCDrawer
   } = mdc.drawer;
 
-  namespace Internal {
+  const cssClasses = {
+    BASE: 'mdc-drawer',
+    OPEN: 'mdc-drawer--open',
+    MODAL: 'mdc-drawer--modal',
+    TITLE: 'mdc-drawer__title',
+    HEADER: 'mdc-drawer__header',
+    SUBTITLE: 'mdc-drawer__subtitle',
+    APP_CONTENT: 'mdc-drawer-app-content',
+    DRAWER_CONTENT: 'mdc-drawer__content',
+    DISMISSIBLE: 'mdc-drawer--dismissible',
+  };
 
-    const cssClasses = {
-      BASE: 'mdc-drawer',
-      OPEN: 'mdc-drawer--open',
-      MODAL: 'mdc-drawer--modal',
-      TITLE: 'mdc-drawer__title',
-      HEADER: 'mdc-drawer__header',
-      SUBTITLE: 'mdc-drawer__subtitle',
-      APP_CONTENT: 'mdc-drawer-app-content',
-      DRAWER_CONTENT: 'mdc-drawer__content',
-      DISMISSIBLE: 'mdc-drawer--dismissible',
-    };
+  const DefaultContent = () => (
+    <Fragment>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle label='Default title' />
+          <DrawerSubtitle label='Default subtitle' />
+        </DrawerHeader>
+      </DrawerContent>
+    </Fragment>
+  );
 
-    const DefaultContent = () => (
-      <Fragment>
-        <DrawerContent>
-          <DrawerHeader>
-            <DrawerTitle label='Default title'/>
-            <DrawerSubtitle label='Default subtitle'/>
-          </DrawerHeader>
-        </DrawerContent>
-      </Fragment>
-    );
+  export const Drawer = ({
+    className = '',
+    children = h(DefaultContent, null),
+    open = false,
+    onChange = (e) => console.log({ e }),
+    tag = 'aside',
+    modal = false,
+    ...otherProps
+  }) => {
 
-    export const Drawer = ({
-      className = '',
-      children = h(DefaultContent, null),
-      open = false,
-      onChange = (e) => console.log({e}),
-      tag = 'aside',
-      modal = false,
-      ...otherProps
-    }) => {
+    const mdcDrawerRef = useRef(null);
+    const elementRef = useRef(null);
 
-      const mdcDrawerRef = useRef(null);
-      const elementRef = useRef(null);
+    useLayoutEffect(() => {
+      const mdcDrawer = new MDCDrawer(elementRef.current);
+      const changeHandler = () => onChange(mdcDrawer.open);
+      mdcDrawer.listen('MDCDrawer:opened', changeHandler);
+      mdcDrawer.listen('MDCDrawer:closed', changeHandler);
+      mdcDrawerRef.current = mdcDrawer;
+      return () => {
+        mdcDrawerRef.current = null;
+        mdcDrawer.unlisten('MDCDrawer:opened', changeHandler);
+        mdcDrawer.unlisten('MDCDrawer:closed', changeHandler);
+        mdcDrawer.destroy();
+      };
+    }, []);
 
-      useLayoutEffect(() => {
-        const mdcDrawer = new MDCDrawer(elementRef.current);
-        const changeHandler = () => onChange(mdcDrawer.open);
-        mdcDrawer.listen('MDCDrawer:opened', changeHandler);
-        mdcDrawer.listen('MDCDrawer:closed', changeHandler);
-        mdcDrawerRef.current = mdcDrawer;
-        return () => {
-          mdcDrawerRef.current = null;
-          mdcDrawer.unlisten('MDCDrawer:opened', changeHandler);
-          mdcDrawer.unlisten('MDCDrawer:closed', changeHandler);
-          mdcDrawer.destroy();
-        };
-      }, []);
+    const classes = () => classNames(cssClasses.BASE, className, {
+      [cssClasses.DISMISSIBLE]: !modal,
+      [cssClasses.MODAL]: modal,
+    });
 
-      const classes = () => classNames(cssClasses.BASE, className, {
-        [cssClasses.DISMISSIBLE]: !modal,
-        [cssClasses.MODAL]: modal,
-      });
+    useEffect(() => {
+      const { current } = mdcDrawerRef;
+      if (current) {
+        current.open = open;
+      }
+    }, [open]);
 
-      useEffect(() => {
-        const {current} = mdcDrawerRef;
-        if (current) {
-          current.open = open;
-        }
-      }, [open]);
+    return createElement(Fragment, null, [
+      createElement(tag, {
+        className: classes(),
+        ref: elementRef,
+        ...otherProps
+      }, children),
+      modal && createElement('div', {
+        className: 'mdc-drawer-scrim'
+      }),
+    ]);
 
-      return createElement(Fragment, null, [
-        createElement(tag, {
-          className: classes(),
-          ref: elementRef,
-          ...otherProps
-        }, children),
-        modal && createElement('div', {
-          className: 'mdc-drawer-scrim'
-        }),
-      ]);
+  };
 
-    };
+  export const DrawerAppContent = ({
+    tag = 'div',
+    children = null,
+    className = '',
+    ...otherProps
+  }) => createElement(tag, {
+    className: classNames(cssClasses.APP_CONTENT, className),
+    ...otherProps
+  }, children);
 
-    export const DrawerAppContent = ({
-      tag = 'div',
-      children = null,
-      className = '',
-      ...otherProps
-    }) => createElement(tag, {
-      className: classNames(cssClasses.APP_CONTENT, className),
-      ...otherProps
-    }, children);
+  export const DrawerContent = ({
+    tag = 'div',
+    children = null,
+    className = '',
+    ...otherProps
+  }) => createElement(tag, {
+    className: classNames(cssClasses.DRAWER_CONTENT, className),
+    ...otherProps
+  }, children);
 
-    export const DrawerContent = ({
-      tag = 'div',
-      children = null,
-      className = '',
-      ...otherProps
-    }) => createElement(tag, {
-      className: classNames(cssClasses.DRAWER_CONTENT, className),
-      ...otherProps
-    }, children);
+  export const DrawerHeader = ({
+    tag = 'div',
+    children = null,
+    className = '',
+    ...otherProps
+  }) => createElement(tag, {
+    className: classNames(cssClasses.HEADER, className),
+    ...otherProps
+  }, children);
 
-    export const DrawerHeader = ({
-      tag = 'div',
-      children = null,
-      className = '',
-      ...otherProps
-    }) => createElement(tag, {
-      className: classNames(cssClasses.HEADER, className),
-      ...otherProps
-    }, children);
+  export const DrawerTitle = ({
+    tag = 'h3',
+    label = 'Title',
+    className = '',
+    ...otherProps
+  }) => createElement(tag, {
+    className: classNames(cssClasses.TITLE, className),
+    ...otherProps
+  }, label);
 
-    export const DrawerTitle = ({
-      tag = 'h3',
-      label = 'Title',
-      className = '',
-      ...otherProps
-    }) => createElement(tag, {
-      className: classNames(cssClasses.TITLE, className),
-      ...otherProps
-    }, label);
-
-    export const DrawerSubtitle = ({
-      tag = 'h6',
-      label,
-      className = '',
-      ...otherProps
-    }) => createElement(tag, {
-      className: classNames(cssClasses.SUBTITLE, className),
-      ...otherProps
-    }, label);
-
-  }
-
-  export const Drawer = Internal.Drawer;
-  export const DrawerTitle = Internal.DrawerTitle;
-  export const DrawerHeader = Internal.DrawerHeader;
-  export const DrawerContent = Internal.DrawerContent;
-  export const DrawerSubtitle = Internal.DrawerSubtitle;
-  export const DrawerAppContent = Internal.DrawerAppContent;
+  export const DrawerSubtitle = ({
+    tag = 'h6',
+    label,
+    className = '',
+    ...otherProps
+  }) => createElement(tag, {
+    className: classNames(cssClasses.SUBTITLE, className),
+    ...otherProps
+  }, label);
 
 }

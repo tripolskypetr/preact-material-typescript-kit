@@ -12,3 +12,4 @@
 /// <reference path="./common/withRipple.tsx"/>
 /// <reference path="./common/withType.tsx"/>
 /// <reference path="./common/drawer.tsx"/>
+/// <reference path="./common/layout.tsx"/>

@@ -39,7 +39,6 @@ namespace Material {
               </TopBarSection>
             </TopBarRow>
           </TopAppBar>
-
           <FixedAdjust>
             <CheckBoxPage/>
             <RadioPage/>
