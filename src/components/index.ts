@@ -8,3 +8,6 @@
 /// <reference path="./common/chip.tsx"/>
 /// <reference path="./common/fab.tsx"/>
 /// <reference path="./common/select.tsx"/>
+/// <reference path="./common/topAppBar.tsx"/>
+/// <reference path="./common/withRipple.tsx"/>
+/// <reference path="./common/withType.tsx"/>

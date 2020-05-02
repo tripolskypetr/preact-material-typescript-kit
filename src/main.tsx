@@ -15,11 +15,26 @@ namespace Material {
 
   const App = () => (
     <Fragment>
-      <CheckBoxPage/>
-      <RadioPage/>
-      <TextFieldPage/>
-      <SelectPage/>
-      <OtherPage/>
+      <TopAppBar>
+        <TopBarRow>
+          <TopBarSection align='start'>
+            <TopBarIcon>
+              <IconButton
+                iconOn="menu"
+                iconOff="arrow_back"
+                color="white"/>
+            </TopBarIcon>
+            <TopAppBarTitle label='Hello!'/>
+          </TopBarSection>
+        </TopBarRow>
+      </TopAppBar>
+      <FixedAdjust>
+        <CheckBoxPage/>
+        <RadioPage/>
+        <TextFieldPage/>
+        <SelectPage/>
+        <OtherPage/>
+      </FixedAdjust>
     </Fragment>
   );
 

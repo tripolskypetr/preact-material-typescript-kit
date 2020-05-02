@@ -1256,12 +1256,13 @@ declare namespace mdc {
     }
   }
   export namespace topAppBar {
-    export namespace MDCTopAppBar {
-      export function initialize(...args: any): any;
-      export function initialSyncWithDOM(...args: any): any;
-      export function destroy(...args: any): any;
-      export function setScrollTarget(...args: any): any;
-      export function getDefaultFoundation(...args: any): any;
+    export class MDCTopAppBar {
+      constructor(...args: any[]);
+      initialize(...args: any): any;
+      initialSyncWithDOM(...args: any): any;
+      destroy(...args: any): any;
+      setScrollTarget(...args: any): any;
+      getDefaultFoundation(...args: any): any;
     }
     export class cssClasses {
       FIXED_CLASS: any;
