@@ -12,6 +12,7 @@ namespace Material {
     <Fragment>
       <IconButton/>
       <Chip/>
+      <Progress style={{width: '175px'}} progress={0.75}/>
     </Fragment>
   );
 

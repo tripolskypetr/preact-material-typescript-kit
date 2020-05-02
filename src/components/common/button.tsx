@@ -9,7 +9,7 @@ namespace Material {
 
   namespace Internal {
 
-    const CSS_CLASSES = {
+    const cssClasses = {
       ROOT: 'mdc-button',
       ICON: 'mdc-button__icon',
       LABEL: 'mdc-button__label',
@@ -32,18 +32,18 @@ namespace Material {
       onClick = (e) => console.log({e}),
       ...otherProps
     }) => {
-      const classes = () => classNames(CSS_CLASSES.ROOT, className, {
-        [CSS_CLASSES.RAISED]: raised,
-        [CSS_CLASSES.UNELEVATED]: unelevated,
-        [CSS_CLASSES.OUTLINED]: outlined,
-        [CSS_CLASSES.DENSE]: dense,
+      const classes = () => classNames(cssClasses.ROOT, className, {
+        [cssClasses.RAISED]: raised,
+        [cssClasses.UNELEVATED]: unelevated,
+        [cssClasses.OUTLINED]: outlined,
+        [cssClasses.DENSE]: dense,
       });
       return (
         <button className={classes()} disabled={disabled} onClick={onClick} {...otherProps}>
           <div className="mdc-button__ripple"></div>
-          {icon ? <Icon className={CSS_CLASSES.ICON} icon={icon.toString()}/> : null}
-          <span className={CSS_CLASSES.LABEL}>{label}</span>
-          {trailingIcon ? <Icon className={CSS_CLASSES.ICON} icon={trailingIcon.toString()}/> : null}
+          {icon ? <Icon className={cssClasses.ICON} icon={icon.toString()}/> : null}
+          <span className={cssClasses.LABEL}>{label}</span>
+          {trailingIcon ? <Icon className={cssClasses.ICON} icon={trailingIcon.toString()}/> : null}
         </button>
       );
     };

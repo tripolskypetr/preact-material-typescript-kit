@@ -426,14 +426,16 @@ declare namespace mdc {
     }
   }
   export namespace linearProgress {
-    export namespace MDCLinearProgress {
-      export function determinate(...args: any): any;
-      export function progress(...args: any): any;
-      export function buffer(...args: any): any;
-      export function reverse(...args: any): any;
-      export function open(...args: any): any;
-      export function close(...args: any): any;
-      export function getDefaultFoundation(...args: any): any;
+    export class MDCLinearProgress {
+      constructor(...args: any);
+      determinate(...args: any): any;
+      progress(...args: any): any;
+      buffer(...args: any): any;
+      reverse(...args: any): any;
+      open(...args: any): any;
+      close(...args: any): any;
+      getDefaultFoundation(...args: any): any;
+      destroy(...args: any): any;
     }
     export class cssClasses {
       CLOSED_CLASS: any;

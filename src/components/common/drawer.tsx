@@ -19,6 +19,7 @@ namespace Material {
   const cssClasses = {
     BASE: 'mdc-drawer',
     OPEN: 'mdc-drawer--open',
+    SCRIM: 'mdc-drawer-scrim',
     MODAL: 'mdc-drawer--modal',
     TITLE: 'mdc-drawer__title',
     HEADER: 'mdc-drawer__header',
@@ -64,7 +65,7 @@ namespace Material {
         mdcDrawer.unlisten('MDCDrawer:closed', changeHandler);
         mdcDrawer.destroy();
       };
-    }, []);
+    }, [modal]);
 
     const classes = () => classNames(cssClasses.BASE, className, {
       [cssClasses.DISMISSIBLE]: !modal,
@@ -85,7 +86,7 @@ namespace Material {
         ...otherProps
       }, children),
       modal && createElement('div', {
-        className: 'mdc-drawer-scrim'
+        className: cssClasses.SCRIM,
       }),
     ]);
 
