@@ -14,3 +14,4 @@
 /// <reference path="./common/drawer.tsx"/>
 /// <reference path="./common/layout.tsx"/>
 /// <reference path="./common/progress.tsx"/>
+/// <reference path="./common/snackbar.tsx"/>

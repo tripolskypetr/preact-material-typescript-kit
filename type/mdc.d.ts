@@ -924,7 +924,17 @@ declare namespace mdc {
     export class util {
       announce: any;
     }
-    export function MDCSnackbar(...args: any): any;
+    export class MDCSnackbar {
+      constructor(...args: any);
+      isOpen: any;
+      timeoutMs: any;
+      closeOnEscape: any;
+      labelText: any;
+      actionButtonText: any;	
+      destroy: any;
+      listen: any;
+      unlisten: any;
+    }
     export class cssClasses {
       CLOSING: any;
       OPEN: any;
