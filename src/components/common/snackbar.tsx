@@ -85,9 +85,10 @@ namespace Material {
           </div>
           {actionText ? (
             <div className={cssClasses.ACTIONS}>
-              <button type='button' onClick={onAction} className={classNames('mdc-button', cssClasses.ACTION)}>
-                action
-              </button>
+              <button
+                type='button'
+                onClick={onAction}
+                className={classNames('mdc-button', cssClasses.ACTION)}/>
             </div>
           ) : null}
         </div>

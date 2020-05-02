@@ -15,3 +15,4 @@
 /// <reference path="./common/layout.tsx"/>
 /// <reference path="./common/progress.tsx"/>
 /// <reference path="./common/snackbar.tsx"/>
+/// <reference path="./common/typography.tsx"/>
