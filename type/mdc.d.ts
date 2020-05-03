@@ -459,7 +459,16 @@ declare namespace mdc {
     }
   }
   export namespace list {
-    export function MDCList(...args: any): any;
+    export class MDCList {
+      constructor(...args: any);
+      vertical: any;
+      wrapFocus: any;
+      singleSelection: any;
+      selectedIndex: any;
+      listen: any;
+      unlisten: any;
+      destroy: any;
+    }
     export class cssClasses {
       LIST_ITEM_ACTIVATED_CLASS: any;
       LIST_ITEM_CLASS: any;

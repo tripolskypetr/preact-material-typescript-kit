@@ -7,6 +7,7 @@
 /// <reference path="./pages/layoutPage.tsx"/>
 /// <reference path="./pages/snackbarPage.tsx"/>
 /// <reference path="./pages/typographyPage.tsx"/>
+/// <reference path="./pages/listPage.tsx"/>
 
 namespace Material {
 
@@ -50,6 +51,7 @@ namespace Material {
             <LayoutPage/>
             <OtherPage/>
             <SnackbarPage/>
+            <ListPage/>
             <TypographyPage/>
           </FixedAdjust>
         </DrawerAppContent>
