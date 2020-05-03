@@ -9,6 +9,7 @@
 /// <reference path="./pages/typographyPage.tsx"/>
 /// <reference path="./pages/listPage.tsx"/>
 /// <reference path="./pages/menuPage.tsx"/>
+/// <reference path="./pages/dialogPage.tsx"/>
 
 namespace Material {
 
@@ -26,7 +27,13 @@ namespace Material {
     const [drawerOpened, setDrawerOpened] = useState(false);
     return (
       <Fragment>
-        <Drawer open={drawerOpened} onChange={setDrawerOpened}>
+        <Drawer modal={true} open={drawerOpened} onChange={setDrawerOpened}>
+          <DrawerContent>
+            <DrawerHeader>
+              <DrawerTitle label='Default title' />
+              <DrawerSubtitle label='Default subtitle' />
+            </DrawerHeader>
+          </DrawerContent>
         </Drawer>
         <DrawerAppContent>
           <TopAppBar>
@@ -53,6 +60,7 @@ namespace Material {
             <OtherPage/>
             <MenuPage/>
             <SnackbarPage/>
+            <DialogPage/>
             <ListPage/>
             <TypographyPage/>
           </FixedAdjust>

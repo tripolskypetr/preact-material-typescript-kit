@@ -232,7 +232,15 @@ declare namespace mdc {
       isScrollable: any;
       areTopsMisaligned: any;
     }
-    export function MDCDialog(...args: any): any;
+    export class MDCDialog {
+      constructor(...args: any);
+      listen: any;
+      unlisten: any;
+      open: any;
+      close: any;
+      destroy: any;
+      isOpen: any;
+    }
     export class cssClasses {
       CLOSING: any;
       OPEN: any;

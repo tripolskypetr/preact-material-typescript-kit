@@ -109,6 +109,7 @@ namespace Material {
     ...otherProps
   }) => createElement(tag, {
     className: classNames(cssClasses.DRAWER_CONTENT, className),
+    tabindex: 0,
     ...otherProps
   }, children);
 
