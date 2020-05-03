@@ -7,7 +7,6 @@ namespace Material {
 
   const {
     useRef,
-    useState,
     useEffect,
     useLayoutEffect,
   } = preactHooks;

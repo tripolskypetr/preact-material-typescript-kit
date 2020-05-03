@@ -35,9 +35,7 @@ namespace Material {
 
     const mdcCheckbox = useRef(null);
 
-    const [state, setState] = useState({
-      checked, indeterminate, disabled
-    });
+    const [state, setState] = useState({checked});
 
     useLayoutEffect(() => {
       const checkBox = new MDCCheckbox(checkBoxElement.current);
@@ -52,24 +50,22 @@ namespace Material {
     }, []);
 
     useEffect(() => {
-      setState({ checked, disabled, indeterminate });
-      inputElement.current.indeterminate = indeterminate;
-    }, [checked, disabled, indeterminate]);
+      setState({ checked });
+    }, [checked]);
 
     useEffect(() => {
-      const { checked, disabled, indeterminate } = state;
+      const { checked } = state;
       if (mdcCheckbox.current) {
         mdcCheckbox.current.checked = checked;
         mdcCheckbox.current.disabled = disabled;
         mdcCheckbox.current.indeterminate = indeterminate;
       }
-    }, [state.checked, state.disabled, state.indeterminate]);
+    }, [state.checked, disabled, indeterminate]);
 
     const handleChange = (e) => {
-      const { checked, indeterminate } = e.target;
-      setState({ checked, indeterminate, disabled });
-      inputElement.current.indeterminate = indeterminate;
-      onChange(e);
+      const { checked } = e.target;
+      setState({ checked });
+      onChange(checked);
     };
 
     return (
@@ -80,7 +76,7 @@ namespace Material {
             ref={inputElement}
             value={state.checked}
             onChange={handleChange}
-            disabled={state.disabled} />
+            disabled={disabled} />
           <div className='mdc-checkbox__background'>
             <svg
               className='mdc-checkbox__checkmark'

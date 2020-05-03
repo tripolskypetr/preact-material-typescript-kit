@@ -32,10 +32,11 @@ namespace Material {
     label = '',
     checked = false,
     disabled = false,
+    onChange = (e) => console.log({e}),
     ...otherProps
   }) => {
 
-    const [state, setState] = useState({checked, disabled});
+    const [state, setState] = useState({checked});
     const switchElement = useRef(null);
     const rootElement = useRef(null);
     const mdcSwitch = useRef(null);
@@ -52,15 +53,21 @@ namespace Material {
       };
     }, []);
 
-    useEffect(() => setState({checked, disabled}), [checked, disabled]);
+    useEffect(() => setState({checked}), [checked]);
 
     useEffect(() => {
-      const {checked, disabled} = state;
+      const {checked} = state;
       if (mdcSwitch.current) {
         mdcSwitch.current.checked = checked;
         mdcSwitch.current.disabled = disabled;
       }
-    }, [state.checked, state.disabled]);
+    }, [state.checked, disabled]);
+
+    const handler = () => {
+      const checked = !state.checked;
+      setState({checked});
+      onChange(checked);
+    };
 
     return (
       <div ref={rootElement} className={classNames('mdc-form-field', className)} {...otherProps}>
@@ -69,7 +76,7 @@ namespace Material {
             <div class="mdc-switch__track"></div>
             <div class="mdc-switch__thumb-underlay">
               <div class="mdc-switch__thumb"></div>
-              <input type="checkbox" disabled={disabled} checked={checked} class="mdc-switch__native-control" role="switch" aria-checked="false"/>
+              <input type="checkbox" onChange={handler} disabled={disabled} checked={state.checked} class="mdc-switch__native-control" role="switch" aria-checked="false"/>
             </div>
           </div>
         </div>

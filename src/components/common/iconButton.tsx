@@ -22,8 +22,11 @@ namespace Material {
     }) => {
       [iconOn, iconOff] = icon ? [icon, icon] : [iconOn, iconOff];
       const [state, setState] = useState({on});
-      const toggle = () => setState(({on}) => ({on: !on}));
-      useEffect(() => onChange(state.on), [state.on]);
+      const toggle = () => {
+        const on = !state.on;
+        setState({on});
+        onChange(on);
+      }
       useEffect(() => setState({on}), [on]);
       return (
         <button onClick={toggle} disabled={disabled} style={{color}} class={classNames('mdc-ripple-surface', 'mdc-icon-button')}>

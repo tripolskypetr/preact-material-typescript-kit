@@ -45,10 +45,26 @@ namespace Material {
     const selectElement = useRef(null);
     const mdSelectRef = useRef(null);
 
-    const changeHandler = useCallback(
+    /*const changeHandler = useCallback(
       (index) => onChange(index),
       [selectedIndex]
-    );
+    );*/
+
+    useLayoutEffect(() => {
+      const mdSelect = new MDCSelect(selectElement.current);
+      mdSelect.selectedIndex = selectedIndex + 1;
+      const handler = () => {
+        const {selectedIndex} = mdSelect;
+        onChange(selectedIndex - 1);
+      };
+      mdSelectRef.current = mdSelect;
+      mdSelect.listen('MDCSelect:change', handler);
+      return () => {
+        mdSelect.unlisten('MDCSelect:change', handler);
+        mdSelectRef.current = null;
+        mdSelect.destroy();
+      };
+    }, [required, disabled, outlined]);
 
     useEffect(() => {
       const {current} = mdSelectRef;
@@ -60,22 +76,6 @@ namespace Material {
         current.valid = valid;
       }
     }, [selectedIndex, required, disabled, outlined, valid]);
-
-    useLayoutEffect(() => {
-      const mdSelect = new MDCSelect(selectElement.current);
-      mdSelect.selectedIndex = selectedIndex;
-      const handler = () => {
-        const {selectedIndex} = mdSelect;
-        changeHandler(selectedIndex - 1);
-      };
-      mdSelectRef.current = mdSelect;
-      mdSelect.listen('MDCSelect:change', handler);
-      return () => {
-        mdSelect.unlisten('MDCSelect:change', handler);
-        mdSelectRef.current = null;
-        mdSelect.destroy();
-      };
-    }, [required, disabled, outlined]);
 
     const classes = () => classNames('mdc-select', {
       [CSS_CLASSES.OUTLINED]: outlined,
