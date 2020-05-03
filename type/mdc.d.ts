@@ -860,7 +860,17 @@ declare namespace mdc {
     }
   }
   export namespace slider {
-    export function MDCSlider(...args: any): any;
+    export class MDCSlider {
+      constructor(...args: any);
+      value: any;
+      min: any;
+      max: any;
+      step: any;
+      disabled: any;
+      listen: any;
+      unlisten: any;
+      destroy: any;
+    }
     export class cssClasses {
       ACTIVE: any;
       DISABLED: any;

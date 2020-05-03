@@ -16,3 +16,4 @@
 /// <reference path="./common/progress.tsx"/>
 /// <reference path="./common/snackbar.tsx"/>
 /// <reference path="./common/typography.tsx"/>
+/// <reference path="./common/slider.tsx"/>
