@@ -16,13 +16,13 @@ namespace Material {
     };
 
     const promptClick = async () => {
-      await DialogProvider.prompt('Message', 'Default value');
-      console.log('done');
+      const v = await DialogProvider.prompt('Message', 'Default value');
+      console.log('done', v);
     };
 
     const confirmClick = async () => {
-      await DialogProvider.confirm();
-      console.log('done');
+      const v = await DialogProvider.confirm('title', 'message');
+      console.log('done', v);
     };
 
     const selectClick = async () => {
@@ -30,13 +30,19 @@ namespace Material {
       console.log('done');
     };
 
+    const snackClick = async () => {
+      await DialogProvider.snack('Message', 5000);
+      console.log('done');
+    };
+
     return (
-      <Fragment>
+      <div>
         <Button onClick={alertClick} label="Alert"/>
         <Button onClick={promptClick} label="Prompt"/>
+        <Button onClick={snackClick} label="Snack"/>
         <Button onClick={confirmClick} label="Confirm"/>
         <Button onClick={selectClick} label="Select"/>
-      </Fragment>
+      </div>
     );
   }
 

@@ -69,7 +69,7 @@ namespace Material {
         mdcTextField.current = null;
         text.destroy();
       }
-    }, [fullWidth, outlined, textArea]);
+    }, [fullWidth, outlined, textArea, trailingIcon, leadingIcon]);
 
     useEffect(() => {
       const {current} = mdcTextField;

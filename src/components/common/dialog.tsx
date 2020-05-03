@@ -1,5 +1,6 @@
 
 /// <reference path="./textField.tsx"/>
+/// <reference path="./snackbar.tsx"/>
 
 namespace Material {
 
@@ -172,8 +173,17 @@ namespace Material {
     }) => {
       const [opened, setOpened] = useState(true);
       const [text, setText] = useState(value);
+      const textRef = useRef('');
+      useEffect(() => {
+        textRef.current = text
+      }, [text]);
+      const handleClose = (v) => {
+        if (v === false) {
+          resolve(textRef.current)
+        }
+      };
       return (
-        <Dialog open={opened} onChange={(v) => !v && resolve(text)}>
+        <Dialog open={opened} onChange={handleClose}>
           <DialogContainer>
             <DialogTitle>{message}</DialogTitle>
             <DialogContent>
@@ -188,11 +198,45 @@ namespace Material {
       );
     };
 
+    const ConfirmDialog = ({
+      title = 'Title',
+      message = 'Message',
+      resolve = (e) => console.log(e)
+    }) => {
+      const [opened, setOpened] = useState(true);
+      const resultRef = useRef(false);
+      const handleClose = (v) => {
+        if (v === false) {
+          resolve(resultRef.current);
+        }
+      };
+      const close = (result) => {
+        resultRef.current = result;
+        setOpened(false);
+      };
+      return (
+        <Dialog open={opened} onChange={handleClose}>
+          <DialogContainer>
+            <DialogTitle>{title}</DialogTitle>
+            <DialogContent>
+              <p>{message}</p>
+            </DialogContent>
+            <DialogFooter>
+              <DialogButton label='Ок' onClick={() => close(true)}/>
+              <DialogButton label='Отмена' onClick={() => close(false)}/>
+            </DialogFooter>
+          </DialogContainer>
+          <DialogScrim/>
+        </Dialog>
+      );
+    }
+
     export class DialogProvider extends preact.Component<any, any> {
 
       public static alert: (title?: string, message?: string) => Promise<any> = null;
       public static prompt: (message?: string, value?: string) => Promise<any> = null;
-      public static confirm: () => Promise<any> = null;
+      public static snack: (message?: string, timeout?: number) => Promise<any> = null;
+      public static confirm: (title?: string, message?: string) => Promise<any> = null;
       public static select: () => Promise<any> = null;
 
       constructor(props) {
@@ -201,9 +245,18 @@ namespace Material {
           alertOpened: false,
           alertMessage: '',
           alertTitle: '',
+
           promptOpened: false,
           promptMessage: '',
           promptValue: '',
+
+          snackBarOpened: false,
+          snackBarMessage: '',
+          snackBarTimeout: 5000,
+
+          confirmDialogOpened: false,
+          confirmDialogTitle: '',
+          confirmDialogMessage: '',
         };
 
         DialogProvider.alert = (title = '', message = '') => new Promise((res) => {
@@ -225,10 +278,32 @@ namespace Material {
           }));
           this.resolvePrompt = res;
         });
+
+        DialogProvider.snack = (message = '', timeout = 5000) => new Promise((res) => {
+          this.setState((prevState) => ({
+            ...prevState,
+            snackBarMessage: message,
+            snackBarTimeout: timeout,
+            snackBarOpened: true,
+          }));
+          this.resolveSnack = res;
+        });
+
+        DialogProvider.confirm = (title = 'Title', message = 'Message') => new Promise((res) => {
+          this.setState((prevState) => ({
+            ...prevState,
+            confirmDialogOpened: true,
+            confirmDialogTitle: title,
+            confirmDialogMessage: message,
+          }));
+          this.resolveConfirm = res;
+        });
       }
 
       resolveAlert = null;
       resolvePrompt = null;
+      resolveSnack = null;
+      resolveConfirm = null;
 
       render(props, state) {
         return (
@@ -249,6 +324,27 @@ namespace Material {
                 resolve={(v) => {
                   this.setState({...state, promptOpened: false});
                   this.resolvePrompt(v);
+                }}/>
+            )}
+            {state.snackBarOpened && (
+              <Snackbar
+                open={state.snackBarOpened}
+                message={state.snackBarMessage}
+                timeoutMs={state.snackBarTimeout}
+                onChange={(v) => {
+                  if (!v) {
+                    this.setState({...state, snackBarOpened: false});
+                    this.resolveSnack();
+                  }
+                }}/>
+            )}
+            {state.confirmDialogOpened && (
+              <ConfirmDialog
+                message={state.confirmDialogMessage}
+                title={state.confirmDialogTitle}
+                resolve={(v) => {
+                  this.setState({...state, confirmDialogOpened: false});
+                  this.resolveConfirm(v);
                 }}/>
             )}
             {props.children}
