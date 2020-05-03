@@ -27,8 +27,8 @@ namespace Material {
     const [drawerOpened, setDrawerOpened] = useState(false);
     return (
       <Fragment>
-        <Drawer modal={true} open={drawerOpened} onChange={setDrawerOpened}>
-          <DrawerContent>
+        <Drawer open={drawerOpened} onChange={setDrawerOpened}>
+          <DrawerContent fixed={true}>
             <DrawerHeader>
               <DrawerTitle label='Default title' />
               <DrawerSubtitle label='Default subtitle' />
@@ -36,34 +36,36 @@ namespace Material {
           </DrawerContent>
         </Drawer>
         <DrawerAppContent>
-          <TopAppBar>
-            <TopBarRow>
-              <TopBarSection align='start'>
-                <TopBarIcon>
-                  <IconButton
-                    iconOn="menu"
-                    iconOff="arrow_back"
-                    on={drawerOpened}
-                    onChange={setDrawerOpened}
-                    color="white"/>
-                </TopBarIcon>
-                <TopAppBarTitle label='Hello!'/>
-              </TopBarSection>
-            </TopBarRow>
-          </TopAppBar>
-          <FixedAdjust>
-            <CheckBoxPage/>
-            <RadioPage/>
-            <TextFieldPage/>
-            <SelectPage/>
-            <LayoutPage/>
-            <OtherPage/>
-            <MenuPage/>
-            <SnackbarPage/>
-            <DialogPage/>
-            <ListPage/>
-            <TypographyPage/>
-          </FixedAdjust>
+          <DialogProvider>
+            <TopAppBar>
+              <TopBarRow>
+                <TopBarSection align='start'>
+                  <TopBarIcon>
+                    <IconButton
+                      iconOn="menu"
+                      iconOff="arrow_back"
+                      on={drawerOpened}
+                      onChange={setDrawerOpened}
+                      color="white"/>
+                  </TopBarIcon>
+                  <TopAppBarTitle label='Hello!'/>
+                </TopBarSection>
+              </TopBarRow>
+            </TopAppBar>
+            <FixedAdjust>
+              <CheckBoxPage/>
+              <RadioPage/>
+              <TextFieldPage/>
+              <SelectPage/>
+              <LayoutPage/>
+              <OtherPage/>
+              <MenuPage/>
+              <SnackbarPage/>
+              <DialogPage/>
+              <ListPage/>
+              <TypographyPage/>
+            </FixedAdjust>
+          </DialogProvider>
         </DrawerAppContent>
       </Fragment>
     );

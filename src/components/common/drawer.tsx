@@ -16,6 +16,10 @@ namespace Material {
     MDCDrawer
   } = mdc.drawer;
 
+  const {
+    style
+  } = typestyle;
+
   const cssClasses = {
     BASE: 'mdc-drawer',
     OPEN: 'mdc-drawer--open',
@@ -106,9 +110,16 @@ namespace Material {
     tag = 'div',
     children = null,
     className = '',
+    fixed = false,
     ...otherProps
   }) => createElement(tag, {
-    className: classNames(cssClasses.DRAWER_CONTENT, className),
+    className: classNames(cssClasses.DRAWER_CONTENT, className, {
+      [style({
+        position: 'fixed',
+        width: '255px',
+        height: '100vh',
+      })]: fixed,
+    }),
     tabindex: 0,
     ...otherProps
   }, children);

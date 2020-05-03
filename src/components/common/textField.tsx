@@ -99,7 +99,7 @@ namespace Material {
     return (
       <div class="text-field-container" className={classNames(textFieldPaddingFix, className)}  {...otherProps}>
         <label ref={textFieldElement} className={classes()}>
-          {leadingIcon && <Icon className="mdc-text-field__icon" icon={leadingIcon}/>}
+          {leadingIcon && <i class="mdc-text-field__icon material-icons"/>}
           {textArea || fullWidth ? <textarea disabled={disabled} class="mdc-text-field__input" onInput={onInput}/> : <input disabled={disabled} onInput={onInput} class="mdc-text-field__input"/>}
           {outlined || textArea || fullWidth ? <div class="mdc-notched-outline">
             <div class="mdc-notched-outline__leading"/>
@@ -108,7 +108,7 @@ namespace Material {
             </div>
             <div class="mdc-notched-outline__trailing"/>
           </div> : (label && <label class="mdc-floating-label">{label}</label>)}
-          {trailingIcon ? <Icon className="mdc-text-field__icon" icon={trailingIcon}/> : null}
+          {trailingIcon && <i class="mdc-text-field__icon material-icons"/>}
         </label>
         {helperText && (
           <div class="mdc-text-field-helper-line">
