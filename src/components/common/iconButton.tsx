@@ -13,12 +13,14 @@ namespace Material {
 
     export const IconButton = ({
       on = false,
+      icon = null,
       iconOn = 'favorite',
       iconOff = 'favorite_border',
       disabled = false,
       color = 'initial',
       onChange = (e) => console.log({e}),
     }) => {
+      [iconOn, iconOff] = icon ? [icon, icon] : [iconOn, iconOff];
       const [state, setState] = useState({on});
       const toggle = () => setState(({on}) => ({on: !on}));
       useEffect(() => onChange(state.on), [state.on]);

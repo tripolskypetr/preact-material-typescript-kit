@@ -8,6 +8,7 @@
 /// <reference path="./pages/snackbarPage.tsx"/>
 /// <reference path="./pages/typographyPage.tsx"/>
 /// <reference path="./pages/listPage.tsx"/>
+/// <reference path="./pages/menuPage.tsx"/>
 
 namespace Material {
 
@@ -50,6 +51,7 @@ namespace Material {
             <SelectPage/>
             <LayoutPage/>
             <OtherPage/>
+            <MenuPage/>
             <SnackbarPage/>
             <ListPage/>
             <TypographyPage/>

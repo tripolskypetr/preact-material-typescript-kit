@@ -619,7 +619,14 @@ declare namespace mdc {
       BOTTOM_START: any;
       BOTTOM_END: any;
     }
-    export function MDCMenu(...args: any): any;
+    export class MDCMenu {
+      constructor(...args: any);
+      setAnchorElement: any;
+      open: any;
+      listen: any;
+      unlisten: any;
+      destroy: any;
+    }
     export class cssClasses {
       MENU_SELECTED_LIST_ITEM: any;
       MENU_SELECTION_GROUP: any;

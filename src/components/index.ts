@@ -18,3 +18,4 @@
 /// <reference path="./common/typography.tsx"/>
 /// <reference path="./common/slider.tsx"/>
 /// <reference path="./common/list.tsx"/>
+/// <reference path="./common/menu.tsx"/>

@@ -20,7 +20,7 @@ namespace Material {
       </ListGroup>
       <ListGroup>
         <ListGroupSubheader>Two line list</ListGroupSubheader>
-        <List role="radio" twoLine={true}>
+        <List twoLine={true}>
           {[...new Array(3)].map(() => (
             <ListItem>
               <ListItemText primaryText="Hello" secondaryText="world"/>

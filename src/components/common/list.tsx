@@ -62,7 +62,7 @@ namespace Material {
 
       useLayoutEffect(() => {
         const mdcList = new MDCList(elementRef.current);
-        const handler = () => onItemClick(mdcList.selectedIndex);
+        const handler = ({detail}) => onItemClick(detail.index);
         mdcListRef.current = mdcList;
         mdcList.listen('MDCList:action', handler);
         return () => {
@@ -176,6 +176,7 @@ namespace Material {
       selected = false,
       disabled = false,
       tabIndex = -1,
+      role = 'listitem',
       ...otherProps
     }) => createElement(tag, {
       className: classNames(cssClasses.LIST_ITEM, {
@@ -184,15 +185,21 @@ namespace Material {
         [cssClasses.LIST_ITEM_DISABLED]: disabled,
       }, className),
       tabIndex,
+      role,
       ...otherProps
     }, children);
 
     export type ListProps = Parameters<typeof List>[0];
+    export type ListItemProps = Parameters<typeof ListItem>[0];
 
   }
 
   interface ListProps extends Internal.ListProps {
-    role?: 'radio' | 'radiogroup' | 'listbox' | 'list';
+    role?: 'radiogroup' | 'listbox' | 'list' | 'menu';
+  }
+
+  interface ListItemProps extends Internal.ListItemProps {
+    role?: 'separator' | 'option' | 'radio' | 'checkbox'
   }
 
   export const ListItem = Internal.ListItem;
