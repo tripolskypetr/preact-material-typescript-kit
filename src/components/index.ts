@@ -21,5 +21,6 @@
 /// <reference path="./common/menu.tsx"/>
 /// <reference path="./common/dialog.tsx"/>
 /// <reference path="./common/tabBar.tsx"/>
+/// <reference path="./common/circularProgress.tsx"/>
 /// <reference path="./dialogProvider/dialogProvider.tsx"/>
 /// <reference path="./dialogProvider/renderNotify.tsx"/>
