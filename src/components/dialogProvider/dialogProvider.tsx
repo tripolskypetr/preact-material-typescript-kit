@@ -87,7 +87,9 @@ namespace Material {
       return {
         ...notification,
         resolve: (...args) => {
-          this.setState({notify: this.notifyQueue.pop()});
+          this.setState({notify: null}, () => {
+            this.setState({notify: this.notifyQueue.pop()});
+          });
           return notification.resolve(...args);
         }
       }
