@@ -26,8 +26,8 @@ namespace Material {
     };
 
     const selectClick = async () => {
-      await DialogProvider.select();
-      console.log('done');
+      const v = await DialogProvider.select('title', ['a', 'b', 'c']);
+      console.log('done', v);
     };
 
     const snackClick = async () => {
