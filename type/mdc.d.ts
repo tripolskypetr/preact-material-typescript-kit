@@ -1036,18 +1036,21 @@ declare namespace mdc {
     }
   }
   export namespace tabBar {
-    export namespace MDCTabBar {
-      export function focusOnActivate(...args: any): any;
-      export function useAutomaticActivation(...args: any): any;
-      export function initialize(...args: any): any;
-      export function initialSyncWithDOM(...args: any): any;
-      export function destroy(...args: any): any;
-      export function getDefaultFoundation(...args: any): any;
-      export function activateTab(...args: any): any;
-      export function scrollIntoView(...args: any): any;
-      export function getTabElements_(...args: any): any;
-      export function instantiateTabs_(...args: any): any;
-      export function instantiateTabScroller_(...args: any): any;
+    export class MDCTabBar {
+      constructor(...args:any[]);
+      listen(...args: any): any;
+      unlisten(...args: any): any;
+      focusOnActivate(...args: any): any;
+      useAutomaticActivation(...args: any): any;
+      initialize(...args: any): any;
+      initialSyncWithDOM(...args: any): any;
+      destroy(...args: any): any;
+      getDefaultFoundation(...args: any): any;
+      activateTab(...args: any): any;
+      scrollIntoView(...args: any): any;
+      getTabElements_(...args: any): any;
+      instantiateTabs_(...args: any): any;
+      instantiateTabScroller_(...args: any): any;
     }
     export class strings {
       ARROW_LEFT_KEY: any;

@@ -10,6 +10,7 @@
 /// <reference path="./pages/listPage.tsx"/>
 /// <reference path="./pages/menuPage.tsx"/>
 /// <reference path="./pages/dialogPage.tsx"/>
+/// <reference path="./pages/tabBarPage.tsx"/>
 
 namespace Material {
 
@@ -63,6 +64,7 @@ namespace Material {
               <SnackbarPage/>
               <DialogPage/>
               <ListPage/>
+              <TabBarPage/>
               <TypographyPage/>
             </FixedAdjust>
           </DialogProvider>
