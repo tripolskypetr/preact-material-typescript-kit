@@ -95,7 +95,7 @@ namespace Material {
       }
     }
 
-    async notify(notification: Notification) {
+    private notify(notification: Notification) {
       const notify = this.applyResolveMiddleware(notification);
       if (this.state.notify) {
         this.notifyQueue.push(notify);
