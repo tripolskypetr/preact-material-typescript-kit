@@ -5,9 +5,9 @@
   "main": "dist/material.js",
   "typings": "dist/material.d.ts",
   "scripts": {
+    "start": "npm run dev",
     "dev": "tsc -w",
-    "prod": "tsc && google-closure-compiler dist/material.js --compilation_level SIMPLE --warning_level QUIET  >  dist/material.min.js",
-    "prod:advanced": "tsc && google-closure-compiler dist/material.js --compilation_level ADVANCED --warning_level QUIET --externs type/externs/*.js --use_types_for_optimization >  dist/material.min.js"
+    "build": "tsc && google-closure-compiler dist/material.js --compilation_level SIMPLE --warning_level QUIET  >  dist/material.min.js"
   },
   "repository": {
     "type": "git",

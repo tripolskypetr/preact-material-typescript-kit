@@ -24,3 +24,4 @@
 /// <reference path="./common/circularProgress.tsx"/>
 /// <reference path="./dialogProvider/dialogProvider.tsx"/>
 /// <reference path="./dialogProvider/renderNotify.tsx"/>
+/// <reference path="./common/calendar.tsx"/>

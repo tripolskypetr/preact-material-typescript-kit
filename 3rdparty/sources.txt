@@ -1,10 +1,10 @@
-bootstrap-utilities - https://github.com/rishabh-rajgarhia/bootstrap-4-utilities/blob/master/dist Latest commit 0b2a6dc on 13 Feb 2020
+bootstrap - bootstrap-grid getbootstrap.com v4.4
 material-design-icons - https://github.com/google/material-design-icons/tree/master/iconfont Latest commit eae603a on 21 Mar 2016
 preact - npm package 'preact' version 10.3.4
 preactRouter - npm package 'preact-router' version 3.2.1
 material-components-web - https://github.com/material-components/material-components-web material-components-web@4.0.0
 typestyle - https://github.com/typestyle/typestyle Latest commit da0a810 on 1 April 2020
 classnames - https://github.com/JedWatson/classnames Latest commit b166fd1 on 10 Mar
-moment - npm package 'moment' version 1.7
+moment - npm package 'moment' version 2.25.3
 
 See also https://github.com/preactjs/preact-devtools/releases 0.2.1 Latest commit 2c09cbb 7 hours ago
