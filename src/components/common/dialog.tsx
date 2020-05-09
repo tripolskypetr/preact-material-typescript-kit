@@ -82,7 +82,7 @@ namespace Material {
     className = '',
     label = '',
     isDefault = false,
-    onClick = (e) => console.log({e}),
+    onClick = (e) => debug.log({e}),
     ...otherProps
   }) => {
     const classes = () => classNames(className, cssClasses.BUTTON, {

@@ -74,7 +74,7 @@ namespace Material {
         },
       };
 
-      const scalePath = (path, step = 0, patchTimer = (id) => console.log({id})) => {
+      const scalePath = (path, step = 0, patchTimer = (id) => debug.log({id})) => {
         if (mode !== 'indeterminate') return;
         step %= 3;
         if (step === 0) {
@@ -93,7 +93,7 @@ namespace Material {
         patchTimer(setTimeout(() => scalePath(path, step + 1, patchTimer), step ? 750 : 250));
       }
 
-      const rotateWrapper = (wrapper, patchTimer = (id) => console.log({id})) => {
+      const rotateWrapper = (wrapper, patchTimer = (id) => debug.log({id})) => {
         if (mode !== 'indeterminate') return;
         setAutoPrefix(styles.wrapper, 'transform', 'rotate(0deg)');
         setAutoPrefix(styles.wrapper, 'transitionDuration', '0ms');
