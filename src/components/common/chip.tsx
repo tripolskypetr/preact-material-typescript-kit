@@ -1,3 +1,6 @@
+
+/// <reference path="./debug.ts"/>
+
 namespace Material {
 
   const {
@@ -9,7 +12,7 @@ namespace Material {
     export const Chip = ({
       icon = 'check',
       className = '',
-      onClick = (e) => console.log({e}),
+      onClick = (e) => debug.log({e}),
       ...otherProps
     }) => {
       return (

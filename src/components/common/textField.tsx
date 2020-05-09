@@ -1,8 +1,10 @@
+
+/// <reference path="./debug.ts"/>
+
 namespace Material {
 
   const {
     h,
-    Fragment,
   } = preact;
 
   const {
@@ -10,10 +12,6 @@ namespace Material {
     useEffect,
     useLayoutEffect,
   } = preactHooks;
-
-  const {
-    MDCFormField,
-  } = mdc.formField;
 
   const {
     MDCTextField,
@@ -55,7 +53,7 @@ namespace Material {
     value = '',
     label = '',
     helperText = '',
-    onInput = (e) => console.log({e}),
+    onInput = (e) => debug.log({e}),
     ...otherProps
   }) => {
 

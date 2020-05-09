@@ -1,6 +1,7 @@
 
 /// <reference path="../common/dialog.tsx"/>
 /// <reference path="../common/radio.tsx"/>
+/// <reference path="../common/debug.ts"/>
 
 namespace Material {
 
@@ -19,7 +20,7 @@ namespace Material {
     const AlertDialog = ({
       title = 'Title',
       message = 'Message',
-      resolve = () => console.log('resolve'),
+      resolve = () => debug.log('resolve'),
     }) => {
       const [opened, setOpened] = useState(true);
       return (
@@ -41,7 +42,7 @@ namespace Material {
     const PromptDialog = ({
       message = 'Message',
       value = 'Value',
-      resolve = (e) => console.log(e)
+      resolve = (e) => debug.log(e)
     }) => {
       const [opened, setOpened] = useState(true);
       const [text, setText] = useState(value);
@@ -73,7 +74,7 @@ namespace Material {
     const ConfirmDialog = ({
       title = 'Title',
       message = 'Message',
-      resolve = (e) => console.log(e)
+      resolve = (e) => debug.log(e)
     }) => {
       const [opened, setOpened] = useState(true);
       const resultRef = useRef(false);
@@ -106,7 +107,7 @@ namespace Material {
     const SnackDialog = ({
       message = '',
       timeout = 5000,
-      resolve = () => console.log('resolve')
+      resolve = () => debug.log('resolve')
     }) => {
       return (
         <Snackbar
@@ -124,7 +125,7 @@ namespace Material {
     const SelectDialog = ({
       title = '',
       items = [],
-      resolve = (e) => console.log(e),
+      resolve = (e) => debug.log(e),
     }) => {
       const [opened, setOpened] = useState(true);
       const [index, setIndex] = useState(-1);

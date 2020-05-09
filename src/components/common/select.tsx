@@ -1,3 +1,6 @@
+
+/// <reference path="./debug.ts"/>
+
 namespace Material {
 
   const {
@@ -38,17 +41,12 @@ namespace Material {
     className = '',
     label = 'hello world',
     items = [],
-    onChange = (e) => console.log({e}),
+    onChange = (e) => debug.log({e}),
     ...otherProps
   }) => {
 
     const selectElement = useRef(null);
     const mdSelectRef = useRef(null);
-
-    /*const changeHandler = useCallback(
-      (index) => onChange(index),
-      [selectedIndex]
-    );*/
 
     useLayoutEffect(() => {
       const mdSelect = new MDCSelect(selectElement.current);

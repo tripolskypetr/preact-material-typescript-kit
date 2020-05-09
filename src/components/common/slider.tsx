@@ -1,3 +1,6 @@
+
+/// <reference path="./debug.ts"/>
+
 namespace Material {
 
   const {
@@ -38,7 +41,7 @@ namespace Material {
     max = 100,
     step = 1,
     disabled = false,
-    onChange = (e) => console.log({e}),
+    onChange = (e) => debug.log({e}),
     ...otherProps
   }) => {
 

@@ -1,3 +1,6 @@
+
+/// <reference path="./debug.ts"/>
+
 namespace Material {
 
   const {
@@ -21,7 +24,7 @@ namespace Material {
       icon = 'favorite',
       label = '',
       className = '',
-      onClick = (e) => console.log({e}),
+      onClick = (e) => debug.log({e}),
       ...otherProps
     }) => {
       const extended = label.length > 0;

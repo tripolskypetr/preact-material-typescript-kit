@@ -1,6 +1,7 @@
 
 /// <reference path="./textField.tsx"/>
 /// <reference path="./snackbar.tsx"/>
+/// <reference path="./debug.ts"/>
 
 namespace Material {
 
@@ -39,7 +40,7 @@ namespace Material {
     open = false,
     children = null,
     role = 'alertdialog',
-    onChange = (e) => console.log({e}),
+    onChange = (e) => debug.log({e}),
     ...otherProps
   }) => {
 

@@ -1,3 +1,6 @@
+
+/// <reference path="./debug.ts"/>
+
 namespace Material {
 
   const {
@@ -24,7 +27,7 @@ namespace Material {
     value = '',
     name = '',
     label = '',
-    onChange = (e) => console.log({e}),
+    onChange = (e) => debug.log({e}),
     ...otherProps
   }) => {
 

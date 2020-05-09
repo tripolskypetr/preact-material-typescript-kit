@@ -1,3 +1,4 @@
+/// <reference path="./common/debug.ts"/>
 /// <reference path="./common/button.tsx"/>
 /// <reference path="./common/icon.tsx"/>
 /// <reference path="./common/checkbox.tsx"/>
@@ -25,3 +26,4 @@
 /// <reference path="./dialogProvider/dialogProvider.tsx"/>
 /// <reference path="./dialogProvider/renderNotify.tsx"/>
 /// <reference path="./common/calendar.tsx"/>
+/// <reference path="./common/scaffold.tsx"/>

@@ -1,5 +1,6 @@
 
 /// <reference path="./withType.tsx"/>
+/// <reference path="./debug.ts"/>
 
 namespace Material {
 
@@ -51,7 +52,7 @@ namespace Material {
       wrapFocus = true,
       vertical = true,
 
-      onItemClick = (e) => console.log({e}),
+      onItemClick = (e) => debug.log({e}),
       role = 'list',
       tag = 'ul',
       ...otherProps

@@ -1,5 +1,6 @@
 
 /// <reference path="./withRipple.tsx"/>
+/// <reference path="./debug.ts"/>
 
 namespace Material {
 
@@ -29,7 +30,7 @@ namespace Material {
       label = 'Button',
       trailingIcon = '',
       icon = '',
-      onClick = (e) => console.log({e}),
+      onClick = (e) => debug.log({e}),
       ...otherProps
     }) => {
       const classes = () => classNames(cssClasses.ROOT, className, {

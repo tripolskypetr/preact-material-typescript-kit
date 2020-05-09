@@ -1,5 +1,6 @@
 
 /// <reference path="./withType.tsx"/>
+/// <reference path="./debug.ts"/>
 
 namespace Material {
 
@@ -53,7 +54,7 @@ namespace Material {
       tag = 'header',
       children = null,
       scrollTarget = null,
-      onNavIconClicked = (e) => console.log({e}),
+      onNavIconClicked = (e) => debug.log({e}),
       ...otherProps
     }) => {
 

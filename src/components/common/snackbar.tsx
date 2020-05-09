@@ -1,3 +1,6 @@
+
+/// <reference path="./debug.ts"/>
+
 namespace Material {
 
   const {
@@ -32,8 +35,8 @@ namespace Material {
     open = false,
     stacked = false,
     leading = false,
-    onChange = (e) => console.log({e}),
-    onAction = (e) => console.log({e}),
+    onChange = (e) => debug.log({e}),
+    onAction = (e) => debug.log({e}),
   }) => {
 
     const elementRef = useRef(null);
