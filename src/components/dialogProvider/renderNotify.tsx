@@ -172,7 +172,7 @@ namespace Material {
 
     const CalendarDialog = ({
       now = moment(),
-      resolve = (e) => console.log({e}),
+      resolve = (e) => debug.log({e}),
     }) => {
       const [opened, setOpened] = useState(true);
       const [value, setValue] = useState<string | null>(null);

@@ -1,17 +1,17 @@
 {
-  "name": "preact-material-typescript-kit",
-  "version": "1.0.0",
-  "description": "",
+  "name": "the-one-kit",
+  "version": "7.0",
+  "description": "RAD for CRUD without third party dependencies. Instead of utility piping for assembly, only TypeScript compiler required to make deployment",
   "main": "dist/material.js",
   "typings": "dist/material.d.ts",
   "scripts": {
-    "start": "npm run dev",
+    "start": "tsc && open-cli index.html",
     "dev": "tsc -w",
     "build": "tsc && google-closure-compiler dist/material.js --compilation_level SIMPLE --warning_level QUIET  >  dist/material.min.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tripolskypetr/preact-material-typescript-kit.git"
+    "url": "git+https://github.com/TheOneKit/the-one-kit.git"
   },
   "keywords": [
     "typescript",
@@ -28,6 +28,7 @@
   "homepage": "https://github.com/tripolskypetr/preact-material-typescript-kit#readme",
   "devDependencies": {
     "google-closure-compiler": "^20200315.0.0",
+    "open-cli": "^6.0.1",
     "tslint": "6.1.1",
     "typescript": "3.8.3"
   }

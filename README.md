@@ -1,46 +1,58 @@
 
-# Typescript Preact Material Kit (TPMK)
+# TheOneKit
 
-> For Lack of a Better Name
+> RAD for CRUD without third party dependencies. Instead of utility piping for assembly, only TypeScript compiler required to make deployment
 
-<img src="assets/img/deps.png" />
+This toolkit is quite usefull for writing a user interface for a backend service that will be supported for a limited period of time. It aim to apply forms to "micro" backend services which implement templated functionality, for example, lists with limit and offset, authorisation and registration, data output on json-templated 12 columns layout
 
-## What is it?
+## What is included in?
 
-  TPMK is an blank app which can be used as a starter kit for building self-hosted mobile/desktop frontend. The kit includes presaved type declarations of Preact, Preact Hooks, Preact Router, TypeStyle *packed into namespaces* and their bundles. This allows you to step away from webpack-style code conversion pipeline and simple use TypeScript as JSX and ES6 transpiler
+ - [Preact](https://preactjs.com/)
 
-## Why do I need it?
+    Fast 3kB alternative to React with the same modern API.
 
-  Not every project needs to carry a SASS compiler, PostCSS transformer. Sometimes it is necessary that the project can be guaranteed to be assembled after months, years without external corrections. It's is a killer feature for freelance developer's software. Good bye, amazon 404.
+ - [Preact Hooks](https://preactjs.com/guide/v10/hooks)
 
-   - ### Production build is fast and small
+    New concept of Preact components development that allows you to compose state and side effects. They allow you to reuse stateful logic between components.
 
-  This kit contains Google Closure Compiler externs, so you can use it's Advanced Compilation. Closure Compiler is a most powerfull Javascript optimisation tool in a world, it is used to optimize React builds. In the process of its work, the typescript namespace closures is expanded into real small chunks of optimised code in one file.
+ - [Preact Router](https://github.com/preactjs/preact-router)
 
-   - ### PWA Caching ready
+    Connect your Preact components up to that address bar.
 
-  If you ever tried to create a PWA caching service worker for one of the existing macro frameworks (e.g. NextJS) you should be familiar with the pain. These Frankenstein monsters from build tools give out a completely random set of files that cannot be controlled by one programmer. The output of the Closure Compiler fits into a single file, allowing you to quickly make deploy.
+ - [MomentJS](https://momentjs.com/)
 
-   - ### Cordova ready (joke)
+    Parse, validate, manipulate, and display dates and times in JavaScript.
 
-  For those who need real cross-platform. There's a grain of truth in every joke, I'm going to create mobile applications with this tool.
+ - [TypeStyle](https://github.com/typestyle/typestyle)
 
-## Can't live without other packages?
+    A replacement for CSS Modules, supports *in-code css keyframes animations*
 
-With [generate-closure-externs.js](./assets/js/generate-closure-externs.js) and [generate-typescript-entries.js](./assets/js/generate-typescript-entries.js) you can automatic generate Google Closure Compiler externs and Typescript type defenitions. Thanks to this, you can use any external library if it has a UMD distribution or mapped to a global object. These scripts are executed in the developer console and do not emulate the browser, which provides more cases when the export is successful. I have already processed the [material-components-web-components](https://github.com/material-components/material-components-web-components) from gogle inside of which about 15 thousand lines of modern JavaScript in ES6 modules and nothing broke.
+ - Custom ui components based on MDC
 
-```
-/**
- * Generate Closure Compiler externs
- */
-externs(mdc)
+    **The most important**
 
-...
+## Why this component kit is important
 
-/**
- * Generate Typescript type defenitions (entries)
- */
-tsEntries()
-```
+It looks like this is the last ui kit which can be used with TypeScript defenitions without ES6 modules. Therefore, if you want to keep the ability to run your program in a decade without restoring connections in node_modules, look at this, it may come in handy. Also If you don't want to work without payment on deploying your ui after some time, this is especially useful for fixed-cost freelance work.
 
-<img src="assets/img/deadmau5.png" height="38px" width="55px" align="right" />
+The practice of keeping dependencies remotely suitable for large enterprises with a constantly working devops department, but, is absolutely not applicable to microprojects. For example, due to the removal of the old node-sass binary distribution, the huge set of student projects ceased to compile and run
+
+## Current status
+
+A huge component set was created, but there is todos:
+
+ - List component
+
+   Displaying json-templated [material datagrid](https://material.io/develop/web/components/data-tables/) with limit and offset 
+
+ - One component
+
+   12 column based layout builder
+
+ - Documentation
+
+   Sample app whith will contain all of componenents in this kit
+
+## Screenshot
+
+![Screenshot](assets/img/screenshot.png)

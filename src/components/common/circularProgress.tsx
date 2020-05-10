@@ -6,7 +6,6 @@ namespace Material {
 
   const {
     useRef,
-    useState,
     useEffect,
   } = preactHooks;
 
@@ -20,11 +19,6 @@ namespace Material {
 
   const setAutoPrefix = (style, key, value) => {
     style[key] = value;
-  }
-
-  const getRelativeValue = (value, min, max) => {
-    const clampedValue = Math.min(Math.max(min, value), max);
-    return clampedValue / (max - min);
   }
 
   const getArcLength = (fraction, size, thickness) => {

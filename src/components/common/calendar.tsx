@@ -37,7 +37,7 @@ namespace Material {
   const currentYear = new Date().getFullYear();
 
   const PickYear = ({
-    onChange = (e: moment.Moment) => console.log({ e }),
+    onChange = (e: moment.Moment) => debug.log({ e }),
   }) => {
 
     const [state, setState] = useState({
@@ -132,7 +132,7 @@ namespace Material {
 
   export const Calendar = ({
     now = moment(),
-    onChange = (e: string) => console.log({ e }),
+    onChange = (e: string) => debug.log({ e }),
   }) => {
 
     const [state, setState] = useState({ calendar: generate(now), now });
