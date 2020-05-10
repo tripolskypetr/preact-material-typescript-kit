@@ -1,5 +1,4 @@
 
-/// <reference path="./pages/app/listcomponent/index.tsx"/>
 /// <reference path="./pages/app/elements/index.tsx"/>
 /// <reference path="./components/index.ts"/>
 

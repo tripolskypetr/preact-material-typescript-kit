@@ -9,7 +9,7 @@ namespace Material {
   } = preact;
 
   interface Notification {
-    type: 'alert' | 'prompt' | 'confirm' | 'snack' | 'select',
+    type: 'alert' | 'prompt' | 'confirm' | 'snack' | 'select' | 'date',
     props: object,
     resolve: Function,
   }
@@ -76,6 +76,16 @@ namespace Material {
         this.instance.notify({
           type: 'select',
           props: {title, items},
+          resolve,
+        });
+      })
+    }
+
+    public static date(now?: moment.Moment): Promise<any> {
+      return new Promise((resolve) => {
+        this.instance.notify({
+          type: 'date',
+          props: {now},
           resolve,
         });
       })

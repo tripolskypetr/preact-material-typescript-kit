@@ -170,6 +170,36 @@ namespace Material {
       );
     }
 
+    const CalendarDialog = ({
+      now = moment(),
+      resolve = (e) => console.log({e}),
+    }) => {
+      const [opened, setOpened] = useState(true);
+      const [value, setValue] = useState<string | null>(null);
+      const valueRef = useRef(null);
+      useEffect(() => {
+        valueRef.current = value;
+      }, [value]);
+      const handleClose = (v) => {
+        if (v === false) {
+          resolve(valueRef.current);
+        }
+      };
+      return (
+        <Dialog open={opened} onChange={handleClose}>
+          <DialogContainer minHeight='585px' maxHeight='585px' minWidth='415px' maxWidth='415px'>
+            <DialogContent>
+              <Calendar now={now} onChange={setValue}/>
+            </DialogContent>
+            <DialogFooter>
+              <DialogButton label='Ок' onClick={() => setOpened(false)}/>
+            </DialogFooter>
+          </DialogContainer>
+          <DialogScrim/>
+        </Dialog>
+      );
+    }
+
     export const NotifyRenderer = ({
       type = '',
       props = {},
@@ -185,6 +215,8 @@ namespace Material {
         return <SnackDialog resolve={resolve} {...props}/>
       } else if (type === 'select') {
         return <SelectDialog resolve={resolve} {...props}/>
+      } else if (type === 'date') {
+        return <CalendarDialog resolve={resolve} {...props}/>
       }
     };
 
@@ -193,7 +225,7 @@ namespace Material {
   }
 
   interface NotifyRendererProps extends Internal.NotifyRendererProps {
-    type: 'alert' | 'prompt' | 'confirm' | 'snack' | 'select',
+    type: 'alert' | 'prompt' | 'confirm' | 'snack' | 'select' | 'date',
     resolve: Function,
     props: object,
   }

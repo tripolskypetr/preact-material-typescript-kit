@@ -105,12 +105,22 @@ namespace Material {
     className = '',
     children = null,
     tag = 'div',
+    minHeight = null,
+    minWidth = null,
+    maxHeight = null,
+    maxWidth = null,
     ...otherProps
   }) => createElement(tag, {
     className: classNames(cssClasses.CONTAINER, className),
     ...otherProps
   }, createElement(tag, {
     className: cssClasses.SURFACE,
+    style: {
+      ...minHeight ? {minHeight} : {},
+      ...minWidth ? {minWidth} : {},
+      ...maxHeight ? {maxHeight} : {},
+      ...maxWidth ? {maxWidth} : {},
+    }
   }, children));
 
   export const DialogFooter = ({

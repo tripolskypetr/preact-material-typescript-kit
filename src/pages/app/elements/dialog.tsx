@@ -37,6 +37,11 @@ namespace Material {
         console.log('done');
       };
 
+      const selectDate = async () => {
+        const v = await DialogProvider.date();
+        console.log('done', v);
+      }
+
       return (
         <div>
           <Button onClick={alertClick} label="Alert"/>
@@ -44,6 +49,7 @@ namespace Material {
           <Button onClick={snackClick} label="Snack"/>
           <Button onClick={confirmClick} label="Confirm"/>
           <Button onClick={selectClick} label="Select"/>
+          <Button onClick={selectDate} label="Date"/>
         </div>
       );
     }
