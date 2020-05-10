@@ -56,9 +56,17 @@ namespace Material {
     const elementRef = useRef(null);
     const mdcTabBarRef = useRef(null);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
+      const {current} = mdcTabBarRef;
+      if (current) {
+        current.activateTab(selectedIndex);
+      }
+    }, [selectedIndex]);
+
+    useEffect(() => {
       const mdcTabBar = new MDCTabBar(elementRef.current);
       const handler = ({detail}) => onChange(detail.index);
+      mdcTabBar.activateTab(selectedIndex);
       mdcTabBar.listen('MDCTabBar:activated', handler);
       mdcTabBarRef.current = mdcTabBar;
       return () => {
@@ -67,13 +75,6 @@ namespace Material {
         mdcTabBar.destroy();
       }
     }, []);
-
-    useEffect(() => {
-      const {current} = mdcTabBarRef;
-      if (current) {
-        current.activateTab(selectedIndex);
-      }
-    }, [selectedIndex]);
 
     return (
       <div ref={elementRef} class={classNames('mdc-tab-bar', className)} {...otherProps} role="tablist">

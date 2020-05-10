@@ -784,6 +784,7 @@ declare namespace mdc {
       disabled: any;
       valid: any;
       required: any;
+      outlined: any;
       leadingIconAriaLabel: any;
       leadingIconContent: any;
       helperTextContent: any;
